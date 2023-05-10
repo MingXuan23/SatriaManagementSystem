@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SatriaManagementDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Block">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Asset" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Capacity" Type="bigint" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="BlockID" Type="bigint" Nullable="false" />
+    <Property Name="RoomNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LevelNum" Type="bigint" Nullable="false" />
+    <Property Name="RoomFees" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="MaxCapacity" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" />
+    <Property Name="BlockID" Type="bigint" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SuperAdmin" Type="bit" />
+    <Property Name="DateStartWork" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff_Transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="StaffID" Type="bigint" Nullable="false" />
+    <Property Name="TransactionID" Type="bigint" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="bigint" Nullable="false" />
+    <Property Name="MatircNumber" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_Room">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="StudentID" Type="bigint" Nullable="false" />
+    <Property Name="RoomID" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TransactionID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TransactionDate" Type="date" Nullable="false" />
+    <Property Name="Withdrawal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNum" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="UserTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Room_Block">
+    <End Role="Block" Type="Self.Block" Multiplicity="1" />
+    <End Role="Room" Type="Self.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Block">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="BlockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Block">
+    <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Block">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="BlockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Transaction_Transaction">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+    <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Staff_Transaction">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Transaction_User">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="Staff_Transaction">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Room_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student_Room">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Room_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Student_Room">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Room_Transaction">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+    <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student_Room">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserType">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SatriaManagementDatabaseModelStoreContainer">
+    <EntitySet Name="Block" EntityType="Self.Block" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff_Transaction" EntityType="Self.Staff_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Room" EntityType="Self.Student_Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Room_Block" Association="Self.FK_Room_Block">
+      <End Role="Block" EntitySet="Block" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Block" Association="Self.FK_Staff_Block">
+      <End Role="Block" EntitySet="Block" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Transaction_Transaction" Association="Self.FK_Staff_Transaction_Transaction">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="Staff_Transaction" EntitySet="Staff_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Transaction_User" Association="Self.FK_Staff_Transaction_User">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Staff_Transaction" EntitySet="Staff_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Room_Room" Association="Self.FK_Student_Room_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Student_Room" EntitySet="Student_Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Room_Student" Association="Self.FK_Student_Room_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Student_Room" EntitySet="Student_Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Room_Transaction" Association="Self.FK_Student_Room_Transaction">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="Student_Room" EntitySet="Student_Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

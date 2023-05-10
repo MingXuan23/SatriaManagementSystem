@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SatriaManagementDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Asset" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Capacity" Type="bigint" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="BlockID" Type="bigint" Nullable="false" />
+          <Property Name="RoomNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LevelNum" Type="bigint" Nullable="false" />
+          <Property Name="RoomFees" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MaxCapacity" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff_Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="StaffID" Type="bigint" Nullable="false" />
+          <Property Name="TransactionID" Type="bigint" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StaffUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="StaffID" Type="bigint" Nullable="false" />
+          <Property Name="BlockID" Type="bigint" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SuperAdmin" Type="bit" />
+          <Property Name="DateStartWork" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student_Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="RoomID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransactionID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="StudentUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="MatircNumber" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TransactionDate" Type="date" Nullable="false" />
+          <Property Name="Withdrawal" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="UserTypeID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Room_Block">
+          <End Role="Block" Type="Self.Block" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Block">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="BlockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Block">
+          <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
+          <End Role="StaffUser" Type="Self.StaffUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Block">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffUser">
+              <PropertyRef Name="BlockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Transaction_Transaction">
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+          <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff_Transaction">
+              <PropertyRef Name="TransactionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Staff_Transaction_User' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Staff_Transaction_User" />-->
+        <Association Name="FK_Staff_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="StaffUser" Type="Self.StaffUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffUser">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Room_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student_Room">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Student_Room_Student' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Student_Room_Student" />-->
+        <Association Name="FK_Student_Room_Transaction">
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+          <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student_Room">
+              <PropertyRef Name="TransactionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="StudentUser" Type="Self.StudentUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentUser">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SatriaManagementDatabaseModelStoreContainer">
+          <EntitySet Name="Block" EntityType="Self.Block" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff_Transaction" EntityType="Self.Staff_Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffUser" EntityType="Self.StaffUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Room" EntityType="Self.Student_Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentUser" EntityType="Self.StudentUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Room_Block" Association="Self.FK_Room_Block">
+            <End Role="Block" EntitySet="Block" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Block" Association="Self.FK_Staff_Block">
+            <End Role="Block" EntitySet="Block" />
+            <End Role="StaffUser" EntitySet="StaffUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Transaction_Transaction" Association="Self.FK_Staff_Transaction_Transaction">
+            <End Role="Transaction" EntitySet="Transaction" />
+            <End Role="Staff_Transaction" EntitySet="Staff_Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="StaffUser" EntitySet="StaffUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Room_Room" Association="Self.FK_Student_Room_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Student_Room" EntitySet="Student_Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Room_Transaction" Association="Self.FK_Student_Room_Transaction">
+            <End Role="Transaction" EntitySet="Transaction" />
+            <End Role="Student_Room" EntitySet="Student_Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="StudentUser" EntitySet="StudentUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SatriaManagementDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Asset" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Capacity" Type="Int64" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_Room_Block" FromRole="Block" ToRole="Room" />
+          <NavigationProperty Name="StaffUsers" Relationship="Self.FK_Staff_Block" FromRole="Block" ToRole="StaffUser" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="BlockID" Type="Int64" Nullable="false" />
+          <Property Name="RoomNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LevelNum" Type="Int64" Nullable="false" />
+          <Property Name="RoomFees" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MaxCapacity" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Block" Relationship="Self.FK_Room_Block" FromRole="Room" ToRole="Block" />
+          <NavigationProperty Name="Student_Room" Relationship="Self.FK_Student_Room_Room" FromRole="Room" ToRole="Student_Room" />
+        </EntityType>
+        <EntityType Name="Staff_Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="StaffID" Type="Int64" Nullable="false" />
+          <Property Name="TransactionID" Type="Int64" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transaction" Relationship="Self.FK_Staff_Transaction_Transaction" FromRole="Staff_Transaction" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="StaffUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="StaffID" Type="Int64" Nullable="false" />
+          <Property Name="BlockID" Type="Int64" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SuperAdmin" Type="Boolean" />
+          <Property Name="DateStartWork" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Block" Relationship="Self.FK_Staff_Block" FromRole="StaffUser" ToRole="Block" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="StaffUser" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Student_Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="RoomID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionID" Type="Int64" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Student_Room_Room" FromRole="Student_Room" ToRole="Room" />
+          <NavigationProperty Name="Transaction" Relationship="Self.FK_Student_Room_Transaction" FromRole="Student_Room" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="StudentUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="MatircNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Student_User" FromRole="StudentUser" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Withdrawal" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Staff_Transaction" Relationship="Self.FK_Staff_Transaction_Transaction" FromRole="Transaction" ToRole="Staff_Transaction" />
+          <NavigationProperty Name="Student_Room" Relationship="Self.FK_Student_Room_Transaction" FromRole="Transaction" ToRole="Student_Room" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="UserTypeID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StaffUsers" Relationship="Self.FK_Staff_User" FromRole="User" ToRole="StaffUser" />
+          <NavigationProperty Name="StudentUsers" Relationship="Self.FK_Student_User" FromRole="User" ToRole="StudentUser" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK_User_UserType" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_UserType" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Room_Block">
+          <End Role="Block" Type="Self.Block" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Block">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="BlockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Block">
+          <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
+          <End Role="StaffUser" Type="Self.StaffUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Block">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffUser">
+              <PropertyRef Name="BlockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Room_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student_Room">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Transaction_Transaction">
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+          <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff_Transaction">
+              <PropertyRef Name="TransactionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="StaffUser" Type="Self.StaffUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffUser">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Room_Transaction">
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+          <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student_Room">
+              <PropertyRef Name="TransactionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="StudentUser" Type="Self.StudentUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentUser">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SatriaManagementDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blocks" EntityType="Self.Block" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="Staff_Transaction" EntityType="Self.Staff_Transaction" />
+          <EntitySet Name="StaffUsers" EntityType="Self.StaffUser" />
+          <EntitySet Name="Student_Room" EntityType="Self.Student_Room" />
+          <EntitySet Name="StudentUsers" EntityType="Self.StudentUser" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <AssociationSet Name="FK_Room_Block" Association="Self.FK_Room_Block">
+            <End Role="Block" EntitySet="Blocks" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Block" Association="Self.FK_Staff_Block">
+            <End Role="Block" EntitySet="Blocks" />
+            <End Role="StaffUser" EntitySet="StaffUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Room_Room" Association="Self.FK_Student_Room_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Student_Room" EntitySet="Student_Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Transaction_Transaction" Association="Self.FK_Staff_Transaction_Transaction">
+            <End Role="Transaction" EntitySet="Transactions" />
+            <End Role="Staff_Transaction" EntitySet="Staff_Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="StaffUser" EntitySet="StaffUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Room_Transaction" Association="Self.FK_Student_Room_Transaction">
+            <End Role="Transaction" EntitySet="Transactions" />
+            <End Role="Student_Room" EntitySet="Student_Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="StudentUser" EntitySet="StudentUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SatriaManagementDatabaseModelStoreContainer" CdmEntityContainer="SatriaManagementDatabaseEntities">
+          <EntitySetMapping Name="Blocks">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Block">
+              <MappingFragment StoreEntitySet="Block">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Asset" ColumnName="Asset" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BlockID" ColumnName="BlockID" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="LevelNum" ColumnName="LevelNum" />
+                <ScalarProperty Name="RoomFees" ColumnName="RoomFees" />
+                <ScalarProperty Name="MaxCapacity" ColumnName="MaxCapacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff_Transaction">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Staff_Transaction">
+              <MappingFragment StoreEntitySet="Staff_Transaction">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffUsers">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.StaffUser">
+              <MappingFragment StoreEntitySet="StaffUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="BlockID" ColumnName="BlockID" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="SuperAdmin" ColumnName="SuperAdmin" />
+                <ScalarProperty Name="DateStartWork" ColumnName="DateStartWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Room">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Student_Room">
+              <MappingFragment StoreEntitySet="Student_Room">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentUsers">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.StudentUser">
+              <MappingFragment StoreEntitySet="StudentUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="MatircNumber" ColumnName="MatircNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Withdrawal" ColumnName="Withdrawal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
