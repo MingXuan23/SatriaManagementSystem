@@ -27,10 +27,10 @@ namespace SatriaManagementSystem__Event_Project_
     
         public virtual DbSet<Block> Blocks { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Staff_Transaction> Staff_Transaction { get; set; }
-        public virtual DbSet<StaffUser> StaffUsers { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Student_Room> Student_Room { get; set; }
-        public virtual DbSet<StudentUser> StudentUsers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<User> Users { get; set; }

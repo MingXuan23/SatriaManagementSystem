@@ -14,3 +14,19 @@ C:\Users\User\source\repos\SatriaManagementSystem (Event Project)\SatriaManageme
 C:\Users\User\source\repos\SatriaManagementSystem (Event Project)\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).exe
 C:\Users\User\source\repos\SatriaManagementSystem (Event Project)\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb
 C:\Users\User\source\repos\SatriaManagementSystem (Event Project)\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Form1.resources
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).exe.config
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).exe
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).pdb
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Form1.resources
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Properties.Resources.resources
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.GenerateResource.cache
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CopyComplete
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).exe
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb

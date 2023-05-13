@@ -3,7 +3,7 @@
   <EntityContainerMapping StorageEntityContainer="SatriaManagementDatabaseModelStoreContainer" CdmEntityContainer="SatriaManagementDatabaseEntities">
     <EntitySetMapping Name="Blocks">
       <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Block">
-        <MappingFragment StoreEntitySet="Block">
+        <MappingFragment StoreEntitySet="Blocks">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Asset" ColumnName="Asset" />
@@ -15,7 +15,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Rooms">
       <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Room">
-        <MappingFragment StoreEntitySet="Room">
+        <MappingFragment StoreEntitySet="Rooms">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BlockID" ColumnName="BlockID" />
           <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
@@ -29,7 +29,6 @@
       <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Staff">
         <MappingFragment StoreEntitySet="Staff">
           <ScalarProperty Name="StaffID" ColumnName="StaffID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BlockID" ColumnName="BlockID" />
           <ScalarProperty Name="Salary" ColumnName="Salary" />
           <ScalarProperty Name="SuperAdmin" ColumnName="SuperAdmin" />
@@ -79,7 +78,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.Transaction">
-        <MappingFragment StoreEntitySet="Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
@@ -89,7 +88,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.User">
-        <MappingFragment StoreEntitySet="User">
+        <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -104,7 +103,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="UserTypes">
       <EntityTypeMapping TypeName="SatriaManagementDatabaseModel.UserType">
-        <MappingFragment StoreEntitySet="UserType">
+        <MappingFragment StoreEntitySet="UserTypes">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>

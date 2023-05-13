@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SatriaManagementDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Block">
+  <EntityType Name="Blocks">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -11,7 +11,7 @@
     <Property Name="Gender" Type="bit" Nullable="false" />
     <Property Name="Status" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="Room">
+  <EntityType Name="Rooms">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -27,11 +27,10 @@
       <PropertyRef Name="StaffID" />
     </Key>
     <Property Name="StaffID" Type="bigint" Nullable="false" />
-    <Property Name="ID" Type="bigint" />
     <Property Name="BlockID" Type="bigint" />
     <Property Name="Salary" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="SuperAdmin" Type="bit" />
-    <Property Name="DateStartWork" Type="date" Nullable="false" />
+    <Property Name="DateStartWork" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Staff_Transaction">
     <Key>
@@ -69,16 +68,16 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="Transaction">
+  <EntityType Name="Transactions">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" Nullable="false" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="TransactionDate" Type="date" Nullable="false" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
     <Property Name="Withdrawal" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="User">
+  <EntityType Name="Users">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -92,7 +91,7 @@
     <Property Name="UserTypeID" Type="bigint" Nullable="false" />
     <Property Name="Status" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserType">
+  <EntityType Name="UserTypes">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -100,22 +99,22 @@
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Room_Block">
-    <End Role="Block" Type="Self.Block" Multiplicity="1" />
-    <End Role="Room" Type="Self.Room" Multiplicity="*" />
+    <End Role="Blocks" Type="Self.Blocks" Multiplicity="1" />
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Block">
+      <Principal Role="Blocks">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Room">
+      <Dependent Role="Rooms">
         <PropertyRef Name="BlockID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Staff_Block">
-    <End Role="Block" Type="Self.Block" Multiplicity="0..1" />
+    <End Role="Blocks" Type="Self.Blocks" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Block">
+      <Principal Role="Blocks">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Staff">
@@ -123,19 +122,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Staff_Transaction_Transaction">
-    <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
-    <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Transaction">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Staff_Transaction">
-        <PropertyRef Name="TransactionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Staff_Transaction_User">
+  <Association Name="FK_Staff_Transaction_Staff">
     <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
     <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
     <ReferentialConstraint>
@@ -147,11 +134,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Staff_Transaction_Transaction">
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="0..1" />
+    <End Role="Staff_Transaction" Type="Self.Staff_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transactions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Staff_Transaction">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Staff_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="Users">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Staff">
@@ -160,10 +159,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Student_Room_Room">
-    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
     <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Room">
+      <Principal Role="Rooms">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Student_Room">
@@ -184,10 +183,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Student_Room_Transaction">
-    <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="0..1" />
     <End Role="Student_Room" Type="Self.Student_Room" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Transaction">
+      <Principal Role="Transactions">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Student_Room">
@@ -195,11 +194,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Student_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
+  <Association Name="FK_Student_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="Users">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Student">
@@ -208,50 +207,50 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_UserType">
-    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserType">
+      <Principal Role="UserTypes">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="User">
+      <Dependent Role="Users">
         <PropertyRef Name="UserTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="SatriaManagementDatabaseModelStoreContainer">
-    <EntitySet Name="Block" EntityType="Self.Block" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blocks" EntityType="Self.Blocks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff_Transaction" EntityType="Self.Staff_Transaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Room" EntityType="Self.Student_Room" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Room_Block" Association="Self.FK_Room_Block">
-      <End Role="Block" EntitySet="Block" />
-      <End Role="Room" EntitySet="Room" />
+      <End Role="Blocks" EntitySet="Blocks" />
+      <End Role="Rooms" EntitySet="Rooms" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Block" Association="Self.FK_Staff_Block">
-      <End Role="Block" EntitySet="Block" />
+      <End Role="Blocks" EntitySet="Blocks" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Transaction_Transaction" Association="Self.FK_Staff_Transaction_Transaction">
-      <End Role="Transaction" EntitySet="Transaction" />
+    <AssociationSet Name="FK_Staff_Transaction_Staff" Association="Self.FK_Staff_Transaction_Staff">
+      <End Role="Staff" EntitySet="Staff" />
       <End Role="Staff_Transaction" EntitySet="Staff_Transaction" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Transaction_User" Association="Self.FK_Staff_Transaction_User">
-      <End Role="Staff" EntitySet="Staff" />
+    <AssociationSet Name="FK_Staff_Transaction_Transaction" Association="Self.FK_Staff_Transaction_Transaction">
+      <End Role="Transactions" EntitySet="Transactions" />
       <End Role="Staff_Transaction" EntitySet="Staff_Transaction" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
-      <End Role="User" EntitySet="User" />
+      <End Role="Users" EntitySet="Users" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Student_Room_Room" Association="Self.FK_Student_Room_Room">
-      <End Role="Room" EntitySet="Room" />
+      <End Role="Rooms" EntitySet="Rooms" />
       <End Role="Student_Room" EntitySet="Student_Room" />
     </AssociationSet>
     <AssociationSet Name="FK_Student_Room_Student" Association="Self.FK_Student_Room_Student">
@@ -259,16 +258,16 @@
       <End Role="Student_Room" EntitySet="Student_Room" />
     </AssociationSet>
     <AssociationSet Name="FK_Student_Room_Transaction" Association="Self.FK_Student_Room_Transaction">
-      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="Transactions" EntitySet="Transactions" />
       <End Role="Student_Room" EntitySet="Student_Room" />
     </AssociationSet>
-    <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_Student_Users" Association="Self.FK_Student_Users">
+      <End Role="Users" EntitySet="Users" />
       <End Role="Student" EntitySet="Student" />
     </AssociationSet>
     <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
-      <End Role="UserType" EntitySet="UserType" />
-      <End Role="User" EntitySet="User" />
+      <End Role="UserTypes" EntitySet="UserTypes" />
+      <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

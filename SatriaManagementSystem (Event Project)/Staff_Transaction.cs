@@ -19,6 +19,7 @@ namespace SatriaManagementSystem__Event_Project_
         public Nullable<long> TransactionID { get; set; }
         public string Description { get; set; }
     
+        public virtual Staff Staff { get; set; }
         public virtual Transaction Transaction { get; set; }
     }
 }

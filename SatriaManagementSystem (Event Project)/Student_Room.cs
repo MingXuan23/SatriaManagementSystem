@@ -21,6 +21,7 @@ namespace SatriaManagementSystem__Event_Project_
         public Nullable<long> TransactionID { get; set; }
     
         public virtual Room Room { get; set; }
+        public virtual Student Student { get; set; }
         public virtual Transaction Transaction { get; set; }
     }
 }

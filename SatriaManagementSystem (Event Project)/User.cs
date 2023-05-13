@@ -12,15 +12,8 @@ namespace SatriaManagementSystem__Event_Project_
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class User
+    public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.StaffUsers = new HashSet<StaffUser>();
-            this.StudentUsers = new HashSet<StudentUser>();
-        }
-    
         public long ID { get; set; }
         public string Username { get; set; }
         public string FullName { get; set; }
@@ -31,10 +24,11 @@ namespace SatriaManagementSystem__Event_Project_
         public long UserTypeID { get; set; }
         public bool Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StaffUser> StaffUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentUser> StudentUsers { get; set; }
+        public virtual Staff Staff { get; set; }
+        public virtual Student Student { get; set; }
         public virtual UserType UserType { get; set; }
     }
+
+ 
+
 }

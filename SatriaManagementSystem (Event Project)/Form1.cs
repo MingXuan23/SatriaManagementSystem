@@ -20,8 +20,34 @@ namespace SatriaManagementSystem__Event_Project_
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var findStaff =ent.StaffUsers.FirstOrDefault(x=>x.SuperAdmin==true);
-            var staff = new Staff(findStaff.StaffID);
+            /*var staff=new Staff();
+            staff.getUserByID(1);
+            staff.editUser();
+            staff.deleteUser();
+            staff.addUser();*/
+
+          /*  var list = ent.Blocks.ToList();
+            int level = 3; 
+            int blocknum = 1;
+            foreach (var block in list)
+            {
+                
+                for(int i = 0; i < block.Capacity; i++)
+                {
+                    var room = new Room();
+                    room.ID = blocknum++;
+                    room.MaxCapacity = 2;
+                    room.BlockID=block.ID;
+                    room.LevelNum = i/5 +1;
+                    room.RoomFees = 200;
+                    room.RoomNo = $"{block.Name}-{i % level + 1}-{i / level + 1}";
+                    ent.Rooms.Add(room);
+                    ent.SaveChanges();
+                }
+               
+;                
+            }*/
+
         }
     }
 }
