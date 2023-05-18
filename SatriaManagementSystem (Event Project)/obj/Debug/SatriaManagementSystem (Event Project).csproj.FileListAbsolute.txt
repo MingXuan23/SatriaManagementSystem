@@ -30,3 +30,22 @@ C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Pr
 C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CopyComplete
 C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).exe
 C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).exe.config
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).exe
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).pdb
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.AssemblyReference.cache
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.AdminLoginForm.resources
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Form1.resources
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Properties.Resources.resources
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.GenerateResource.cache
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CopyComplete
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).exe
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.RegisterForm.resources
+C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.StudentViewForm.resources

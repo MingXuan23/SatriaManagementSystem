@@ -49,5 +49,19 @@ namespace SatriaManagementSystem__Event_Project_
             }*/
 
         }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new  AdminLoginForm().ShowDialog();
+            this.Show();
+        }
+
+        private void linkLabelCreateAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new RegisterForm().ShowDialog();
+            this.Show();
+        }
     }
 }

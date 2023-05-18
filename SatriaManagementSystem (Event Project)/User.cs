@@ -28,7 +28,4 @@ namespace SatriaManagementSystem__Event_Project_
         public virtual Student Student { get; set; }
         public virtual UserType UserType { get; set; }
     }
-
- 
-
 }
