@@ -53,114 +53,121 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 118);
+            this.label1.Location = new System.Drawing.Point(54, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "User Name :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 157);
+            this.label2.Location = new System.Drawing.Point(54, 196);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Full Name :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 201);
+            this.label3.Location = new System.Drawing.Point(54, 251);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 240);
+            this.label4.Location = new System.Drawing.Point(54, 300);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 16);
+            this.label4.Size = new System.Drawing.Size(187, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Comfirm Your Password :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(387, 229);
+            this.label6.Location = new System.Drawing.Point(435, 286);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 16);
+            this.label6.Size = new System.Drawing.Size(71, 20);
             this.label6.TabIndex = 6;
             this.label6.Text = "Gender :";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(387, 198);
+            this.label7.Location = new System.Drawing.Point(435, 248);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 16);
+            this.label7.Size = new System.Drawing.Size(56, 20);
             this.label7.TabIndex = 5;
             this.label7.Text = "Email :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(387, 159);
+            this.label8.Location = new System.Drawing.Point(435, 199);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 16);
+            this.label8.Size = new System.Drawing.Size(123, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "Phone Number :";
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(210, 118);
+            this.textBoxUserName.Location = new System.Drawing.Point(236, 148);
+            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(134, 22);
+            this.textBoxUserName.Size = new System.Drawing.Size(150, 26);
             this.textBoxUserName.TabIndex = 8;
             // 
             // textBoxFullName
             // 
-            this.textBoxFullName.Location = new System.Drawing.Point(210, 157);
+            this.textBoxFullName.Location = new System.Drawing.Point(236, 196);
+            this.textBoxFullName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(134, 22);
+            this.textBoxFullName.Size = new System.Drawing.Size(150, 26);
             this.textBoxFullName.TabIndex = 9;
             // 
             // textBoxPw
             // 
-            this.textBoxPw.Location = new System.Drawing.Point(210, 201);
+            this.textBoxPw.Location = new System.Drawing.Point(236, 251);
+            this.textBoxPw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPw.Name = "textBoxPw";
-            this.textBoxPw.Size = new System.Drawing.Size(134, 22);
+            this.textBoxPw.Size = new System.Drawing.Size(150, 26);
             this.textBoxPw.TabIndex = 10;
             // 
             // textBoxComPw
             // 
-            this.textBoxComPw.Location = new System.Drawing.Point(210, 240);
+            this.textBoxComPw.Location = new System.Drawing.Point(236, 300);
+            this.textBoxComPw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxComPw.Name = "textBoxComPw";
-            this.textBoxComPw.Size = new System.Drawing.Size(134, 22);
+            this.textBoxComPw.Size = new System.Drawing.Size(150, 26);
             this.textBoxComPw.TabIndex = 11;
             // 
             // textBoxPhoneNum
             // 
-            this.textBoxPhoneNum.Location = new System.Drawing.Point(508, 153);
+            this.textBoxPhoneNum.Location = new System.Drawing.Point(572, 191);
+            this.textBoxPhoneNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPhoneNum.Name = "textBoxPhoneNum";
-            this.textBoxPhoneNum.Size = new System.Drawing.Size(145, 22);
+            this.textBoxPhoneNum.Size = new System.Drawing.Size(163, 26);
             this.textBoxPhoneNum.TabIndex = 12;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(508, 195);
+            this.textBoxEmail.Location = new System.Drawing.Point(572, 244);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(145, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(163, 26);
             this.textBoxEmail.TabIndex = 13;
             // 
             // radioButtonMale
             // 
             this.radioButtonMale.AutoSize = true;
-            this.radioButtonMale.Location = new System.Drawing.Point(508, 233);
+            this.radioButtonMale.Location = new System.Drawing.Point(572, 291);
+            this.radioButtonMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonMale.Name = "radioButtonMale";
-            this.radioButtonMale.Size = new System.Drawing.Size(58, 20);
+            this.radioButtonMale.Size = new System.Drawing.Size(68, 24);
             this.radioButtonMale.TabIndex = 15;
             this.radioButtonMale.TabStop = true;
             this.radioButtonMale.Text = "Male";
@@ -169,9 +176,10 @@
             // radioButtonFemale
             // 
             this.radioButtonFemale.AutoSize = true;
-            this.radioButtonFemale.Location = new System.Drawing.Point(508, 259);
+            this.radioButtonFemale.Location = new System.Drawing.Point(572, 324);
+            this.radioButtonFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonFemale.Name = "radioButtonFemale";
-            this.radioButtonFemale.Size = new System.Drawing.Size(74, 20);
+            this.radioButtonFemale.Size = new System.Drawing.Size(87, 24);
             this.radioButtonFemale.TabIndex = 16;
             this.radioButtonFemale.TabStop = true;
             this.radioButtonFemale.Text = "Female";
@@ -181,51 +189,56 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(36, 35);
+            this.label9.Location = new System.Drawing.Point(40, 44);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(340, 46);
+            this.label9.Size = new System.Drawing.Size(407, 55);
             this.label9.TabIndex = 17;
             this.label9.Text = "Here for Register";
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(568, 306);
+            this.buttonSave.Location = new System.Drawing.Point(639, 382);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(85, 36);
+            this.buttonSave.Size = new System.Drawing.Size(96, 45);
             this.buttonSave.TabIndex = 18;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(452, 306);
+            this.buttonExit.Location = new System.Drawing.Point(508, 382);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(85, 36);
+            this.buttonExit.Size = new System.Drawing.Size(96, 45);
             this.buttonExit.TabIndex = 19;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // textBoxMatricNum
             // 
-            this.textBoxMatricNum.Location = new System.Drawing.Point(508, 112);
+            this.textBoxMatricNum.Location = new System.Drawing.Point(572, 140);
+            this.textBoxMatricNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxMatricNum.Name = "textBoxMatricNum";
-            this.textBoxMatricNum.Size = new System.Drawing.Size(145, 22);
+            this.textBoxMatricNum.Size = new System.Drawing.Size(163, 26);
             this.textBoxMatricNum.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(387, 118);
+            this.label5.Location = new System.Drawing.Point(435, 148);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.Size = new System.Drawing.Size(120, 20);
             this.label5.TabIndex = 20;
             this.label5.Text = "Matric Number :";
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 412);
+            this.ClientSize = new System.Drawing.Size(829, 515);
             this.Controls.Add(this.textBoxMatricNum);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonExit);
@@ -246,6 +259,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "RegisterForm";
             this.Text = "Register";
             this.ResumeLayout(false);

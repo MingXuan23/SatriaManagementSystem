@@ -29,7 +29,7 @@
     <Property Name="StaffID" Type="bigint" Nullable="false" />
     <Property Name="BlockID" Type="bigint" />
     <Property Name="Salary" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="SuperAdmin" Type="bit" />
+    <Property Name="SuperAdmin" Type="bit" Nullable="false" />
     <Property Name="DateStartWork" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Staff_Transaction">
@@ -46,7 +46,7 @@
       <PropertyRef Name="StudentID" />
     </Key>
     <Property Name="StudentID" Type="bigint" Nullable="false" />
-    <Property Name="MatircNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatricNumber" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Student_Room">
     <Key>
@@ -57,16 +57,6 @@
     <Property Name="RoomID" Type="bigint" Nullable="false" />
     <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TransactionID" Type="bigint" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Transactions">
     <Key>
@@ -225,7 +215,6 @@
     <EntitySet Name="Staff_Transaction" EntityType="Self.Staff_Transaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Room" EntityType="Self.Student_Room" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />

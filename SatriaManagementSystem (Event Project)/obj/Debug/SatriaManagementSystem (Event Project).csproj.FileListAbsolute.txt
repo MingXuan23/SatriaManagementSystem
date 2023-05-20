@@ -49,3 +49,22 @@ C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaMana
 C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb
 C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.RegisterForm.resources
 C:\Users\user\Desktop\FTMK SEM4\EDP\EDP_Satria\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.StudentViewForm.resources
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.AssemblyReference.cache
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.SuggestedBindingRedirects.cache
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.AdminLoginForm.resources
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Form1.resources
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.Properties.Resources.resources
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.RegisterForm.resources
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.StudentViewForm.resources
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.GenerateResource.cache
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CoreCompileInputs.cache
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).exe.config
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).exe
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\SatriaManagementSystem (Event Project).pdb
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.dll
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.xml
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CopyComplete
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).exe
+C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb

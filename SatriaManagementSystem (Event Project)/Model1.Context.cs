@@ -31,7 +31,6 @@ namespace SatriaManagementSystem__Event_Project_
         public virtual DbSet<Staff_Transaction> Staff_Transaction { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Student_Room> Student_Room { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }

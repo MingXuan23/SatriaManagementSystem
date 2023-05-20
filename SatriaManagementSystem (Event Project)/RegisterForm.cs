@@ -12,11 +12,67 @@ namespace SatriaManagementSystem__Event_Project_
 {
     public partial class RegisterForm : Form
     {
+        SatriaManagementDatabaseEntities ent = new SatriaManagementDatabaseEntities();
+        Student student = new Student();
+
         public RegisterForm()
         {
             InitializeComponent();
         }
 
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            string inputUserName = textBoxUserName.Text;
+            string inputFullName = textBoxFullName.Text;
+            string inputPassword = textBoxPw.Text;
+            string inputConfirmPassword = textBoxComPw.Text;    
+            string inputMatricNo = textBoxMatricNum.Text;
+            string inputPhoneNo = textBoxPhoneNum.Text;
+            string inputEmail = textBoxEmail.Text;
+            bool inputIsMale = radioButtonMale.Checked;
+            bool inputIsFemale = radioButtonFemale.Checked;
 
+            if(inputUserName == string.Empty || inputFullName == string.Empty|| inputPassword == string.Empty|| inputConfirmPassword ==string.Empty||inputMatricNo == string.Empty || inputPhoneNo == string.Empty|| inputEmail ==string.Empty || (!inputIsFemale && !inputIsMale))
+            {
+                MessageBox.Show("Please don't leave any field empty", "Empty Fields");
+                return;
+            }else if(inputPassword != inputConfirmPassword || inputPassword.Length < 6)
+            {
+                MessageBox.Show("Please make sure both passwords match and the password's length is at least 6 characters","Invalid Password");
+                textBoxPw.Text = string.Empty;
+                textBoxPw.Focus();
+                textBoxComPw.Text = string.Empty;
+                return;
+            }
+            else//if inputs are valid
+            {
+                try
+                {
+                    student.Username = inputUserName;
+                    student.FullName = inputFullName;
+                    student.Password = inputPassword;
+                    student.MatricNumber = inputMatricNo;
+                    student.PhoneNum = inputPhoneNo;
+                    student.Email = inputEmail;
+                    student.Gender = inputIsMale ? true : false;
+                    student.UserTypeID = 1;
+                    student.Status = true;
+                    student.addUser();
+                }
+                catch (NullReferenceException err)
+                {
+                    MessageBox.Show(err.Message);
+                    return;
+                }
+
+                MessageBox.Show("Student Registration Successful!");
+                this.Close();
+            }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
