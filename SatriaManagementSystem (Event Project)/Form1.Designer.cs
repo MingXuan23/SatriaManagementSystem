@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< Updated upstream
             this.labelUsername = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -191,11 +192,29 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
+=======
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(285, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(231, 171);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+>>>>>>> Stashed changes
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(789, 528);
             this.Controls.Add(this.linkLabelCreateAcc);
             this.Controls.Add(this.labelNewMember);
@@ -210,6 +229,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+=======
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+>>>>>>> Stashed changes
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +244,7 @@
 
         #endregion
 
+<<<<<<< Updated upstream
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label label2;
@@ -231,6 +259,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBoxShowPw;
         private System.Windows.Forms.CheckBox checkBoxKeepMe;
+=======
+        private System.Windows.Forms.PictureBox pictureBox1;
+>>>>>>> Stashed changes
     }
 }
 

@@ -63,6 +63,7 @@ namespace SatriaManagementSystem__Event_Project_
 
         }
 
+<<<<<<< Updated upstream
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -203,6 +204,14 @@ namespace SatriaManagementSystem__Event_Project_
             {
                 checkBoxKeepMe.Checked = false;
             }
+=======
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form1().ShowDialog();
+            this.Show();
+            pictureBox1.Image = null;
+>>>>>>> Stashed changes
         }
     }
 }
