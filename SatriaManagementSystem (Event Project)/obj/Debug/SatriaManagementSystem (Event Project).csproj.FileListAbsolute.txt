@@ -68,3 +68,6 @@ C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManage
 C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).csproj.CopyComplete
 C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).exe
 C:\Users\AhFei\Documents\UTeM Sem 4\Event-Driven Programming\github\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem (Event Project).pdb
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.AdminLoginForm.resources
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.RegisterForm.resources
+C:\Users\User\Desktop\CMX FILE\utem\sem 4\event\SatriaManagementSystem (Event Project)\SatriaManagementSystem\SatriaManagementSystem (Event Project)\obj\Debug\SatriaManagementSystem__Event_Project_.StudentViewForm.resources

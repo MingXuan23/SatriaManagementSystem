@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6b0a2da1698b48559c7c492101b84c38" Name="Diagram1" ZoomLevel="69">
+      <Diagram DiagramId="6b0a2da1698b48559c7c492101b84c38" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="SatriaManagementDatabaseModel.Block" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SatriaManagementDatabaseModel.Room" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="SatriaManagementDatabaseModel.Staff" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />

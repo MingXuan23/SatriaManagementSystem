@@ -13,10 +13,8 @@ namespace SatriaManagementSystem__Event_Project_
     using System.Collections.Generic;
     using System.Linq;
 
-
-    public partial class Staff: SatriaUser
+    public partial class Staff:SatriaUser
     {
-        SatriaManagementDatabaseEntities ent = new SatriaManagementDatabaseEntities();
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Staff()
         {
@@ -34,10 +32,10 @@ namespace SatriaManagementSystem__Event_Project_
         public virtual ICollection<Staff_Transaction> Staff_Transaction { get; set; }
         public virtual User User { get; set; }
 
-        //for staff
+        SatriaManagementDatabaseEntities ent =new SatriaManagementDatabaseEntities();
         public override void getUserByID(long id)
         {
-            var staff = ent.Users.FirstOrDefault(x => x.ID == id && (x.UserTypeID == 2||x.UserTypeID==3));
+            var staff = ent.Users.FirstOrDefault(x => x.ID == id && (x.UserTypeID == 2 || x.UserTypeID == 3));
             if (staff == null)
                 throw new NullReferenceException("This staff did not exist");
             else
@@ -55,10 +53,10 @@ namespace SatriaManagementSystem__Event_Project_
                 this.Status = staff.Status;
 
                 //save for children student
-                var staffDetails=ent.Staffs.FirstOrDefault(x=>x.StaffID==staff.ID);
+                var staffDetails = ent.Staffs.FirstOrDefault(x => x.StaffID == staff.ID);
                 this.BlockID = staffDetails.BlockID;
-                this.Salary=staffDetails.Salary;
-                this.SuperAdmin=staffDetails.SuperAdmin;
+                this.Salary = staffDetails.Salary;
+                this.SuperAdmin = staffDetails.SuperAdmin;
                 this.DateStartWork = staffDetails.DateStartWork;
 
 
@@ -69,7 +67,7 @@ namespace SatriaManagementSystem__Event_Project_
         {
             var staff = ent.Users.FirstOrDefault(x => x.Username == username && (x.UserTypeID == 2 || x.UserTypeID == 3));
             if (staff == null)
-                throw new NullReferenceException("This staff does not exist");
+                throw new NullReferenceException("This student did not exist");
             else
             {
                 //save for parent user
@@ -84,7 +82,7 @@ namespace SatriaManagementSystem__Event_Project_
                 this.UserTypeID = staff.UserTypeID;
                 this.Status = staff.Status;
 
-                //save for children staff
+                //save for children student
                 var staffDetails = ent.Staffs.FirstOrDefault(x => x.StaffID == staff.ID);
                 this.BlockID = staffDetails.BlockID;
                 this.Salary = staffDetails.Salary;
@@ -108,7 +106,7 @@ namespace SatriaManagementSystem__Event_Project_
                 var staff = ent.Staffs.Create();
 
                 //save for parent user
-                user.ID = ent.Users.Any()?ent.Users.Max(x => x.ID) + 1:1;
+                user.ID = ent.Users.Any() ? ent.Users.Max(x => x.ID) + 1 : 1;
                 user.Username = this.Username;
                 user.FullName = this.FullName;
                 user.Password = this.Password;
@@ -152,9 +150,9 @@ namespace SatriaManagementSystem__Event_Project_
             if (ent.Users.Any(x => x.ID == this.ID) || ent.Staffs.Any(x => x.StaffID == this.StaffID))
             {
 
-                var user =ent.Users.FirstOrDefault(x=>x.ID == this.ID);
-                var staff =ent.Staffs.FirstOrDefault(x=>x.StaffID==this.StaffID);
-              
+                var user = ent.Users.FirstOrDefault(x => x.ID == this.ID);
+                var staff = ent.Staffs.FirstOrDefault(x => x.StaffID == this.StaffID);
+
                 user.Username = this.Username;
                 user.FullName = this.FullName;
                 user.Password = this.Password;
@@ -165,24 +163,23 @@ namespace SatriaManagementSystem__Event_Project_
                 user.Status = this.Status;
 
                 //save for children student
-               if(this.BlockID.HasValue && this.SuperAdmin)
+                if (this.BlockID.HasValue && this.SuperAdmin)
                 {
                     staff.BlockID = this.BlockID;
                 }
-                
+
                 staff.Salary = this.Salary;
                 staff.SuperAdmin = this.SuperAdmin;
                 staff.DateStartWork = this.DateStartWork;
 
                 ent.SaveChanges();
-                
+
 
             }
             else
-{
-    throw new NullReferenceException("This student did not exist");
-}
+            {
+                throw new NullReferenceException("This student did not exist");
+            }
         }
-
     }
 }

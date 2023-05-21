@@ -14,7 +14,7 @@ namespace SatriaManagementSystem__Event_Project_
     {
         SatriaManagementDatabaseEntities ent =new SatriaManagementDatabaseEntities();
         Student student=new Student();
-        Staff staff=new Staff();
+        //Staff staff=new Staff();
         public Form1()
         {
             if(Properties.Settings.Default.UserID != 0)//keep me signed in is in access
@@ -33,33 +33,7 @@ namespace SatriaManagementSystem__Event_Project_
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*var staff=new Staff();
-            staff.getUserByID(1);
-            staff.editUser();
-            staff.deleteUser();
-            staff.addUser();*/
-
-          /*  var list = ent.Blocks.ToList();
-            int level = 3; 
-            int blocknum = 1;
-            foreach (var block in list)
-            {
-                
-                for(int i = 0; i < block.Capacity; i++)
-                {
-                    var room = new Room();
-                    room.ID = blocknum++;
-                    room.MaxCapacity = 2;
-                    room.BlockID=block.ID;
-                    room.LevelNum = i/5 +1;
-                    room.RoomFees = 200;
-                    room.RoomNo = $"{block.Name}-{i % level + 1}-{i / level + 1}";
-                    ent.Rooms.Add(room);
-                    ent.SaveChanges();
-                }
-               
-;                
-            }*/
+            
 
         }
 
@@ -89,60 +63,37 @@ namespace SatriaManagementSystem__Event_Project_
                 return;
             }
             //student try to log-in 
-            if(inputMatricNumber != string.Empty)
+            try
             {
-                try
+                student.getUserByName(inputUserName);
+                if (inputMatricNumber != student.MatricNumber)
                 {
-                    student.getUserByName(inputUserName);
-                    if(inputMatricNumber != student.MatricNumber)
-                    {
-                        MessageBox.Show("Invalid matric number!");
-                        textBoxMatric.Focus();
-                        return;
-                    }else if(inputPassword != student.Password)
-                    {
-                        MessageBox.Show("Invalid password!");
-                        textBoxPassword.Focus();
-                        return;
-                    }
-                    else//if inputs is valid
-                    {
-                        this.Hide();
-                        new StudentViewForm(student).ShowDialog();
-                        reset();
-                        this.Show();
-                    }
-                }
-                catch(NullReferenceException err)
-                {
-                    MessageBox.Show(err.Message);
+                    MessageBox.Show("Invalid matric number!");
+                    textBoxMatric.Focus();
                     return;
                 }
-            }
-            else//staff try to log-in 
-            {
-                try
+                else if (inputPassword != student.Password)
                 {
-                    staff.getUserByName(inputUserName);
-                    if (inputPassword != staff.Password)
-                    {
-                        MessageBox.Show("Invalid password!");
-                        textBoxPassword.Focus();
-                        return;
-                    }
-                    else//if inputs is valid
-                    {
-                        this.Hide();
-                        MessageBox.Show("Staff Log In!!!");
-                        this.Show();
-                    }
-                }
-                catch(NullReferenceException err)
-                {
-                    MessageBox.Show(err.Message);
+                    MessageBox.Show("Invalid password!");
+                    textBoxPassword.Focus();
                     return;
                 }
+                else//if inputs is valid
+                {
+                    this.Hide();
+                    Properties.Settings.Default.UserID = student.StudentID;
+                    Properties.Settings.Default.Save();
+                    new StudentViewForm(student).ShowDialog();
+                    reset();
+                    this.Show();
+                }
             }
+            catch (NullReferenceException err)
+            {
+                MessageBox.Show(err.Message);
+                return;
+            }
+
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -154,10 +105,9 @@ namespace SatriaManagementSystem__Event_Project_
             textBoxUserName.Text = string.Empty;
             textBoxMatric.Text = string.Empty;
             textBoxPassword.Text = string.Empty;
-            checkBoxKeepMe.Checked = false;
             checkBoxShowPw.Checked = false;
             student = new Student();
-            staff = new Staff();
+
         }
 
         private void checkBoxShowPw_CheckedChanged(object sender, EventArgs e)
@@ -167,7 +117,7 @@ namespace SatriaManagementSystem__Event_Project_
 
         private void checkBoxKeepMe_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxKeepMe.Checked && textBoxUserName.Text != string.Empty && textBoxPassword.Text != string.Empty)
+            /*if (checkBoxKeepMe.Checked && textBoxUserName.Text != string.Empty && textBoxPassword.Text != string.Empty)
             {
                 if(textBoxMatric.Text!= string.Empty)//for student
                 {
@@ -202,7 +152,7 @@ namespace SatriaManagementSystem__Event_Project_
             else
             {
                 checkBoxKeepMe.Checked = false;
-            }
+            }*/
         }
     }
 }
