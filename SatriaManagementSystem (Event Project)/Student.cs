@@ -54,7 +54,7 @@ namespace SatriaManagementSystem__Event_Project_
 
                 //save for children student
                 student.MatricNumber = this.MatricNumber;
-
+                student.StudentID = user.ID;
                 ent.Users.Add(user);
                 ent.Students.Add(student);
                 ent.SaveChanges();

@@ -67,7 +67,7 @@ namespace SatriaManagementSystem__Event_Project_
         {
             var staff = ent.Users.FirstOrDefault(x => x.Username == username && (x.UserTypeID == 2 || x.UserTypeID == 3));
             if (staff == null)
-                throw new NullReferenceException("This student did not exist");
+                throw new NullReferenceException("This staff did not exist");
             else
             {
                 //save for parent user
