@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.tabControlApplyRoom = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewBlock = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.labelInstruction = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -62,11 +63,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.satriaManagementDatabaseDataSet = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSet();
+            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roomsTableAdapter = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSetTableAdapters.RoomsTableAdapter();
             this.tabControlApplyRoom.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBlock)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.satriaManagementDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogOut
@@ -77,7 +83,7 @@
             this.buttonLogOut.Name = "buttonLogOut";
             this.buttonLogOut.Size = new System.Drawing.Size(111, 50);
             this.buttonLogOut.TabIndex = 0;
-            this.buttonLogOut.Text = "LogOut";
+            this.buttonLogOut.Text = "Log Out";
             this.buttonLogOut.UseVisualStyleBackColor = true;
             this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
@@ -92,10 +98,11 @@
             this.tabControlApplyRoom.SelectedIndex = 0;
             this.tabControlApplyRoom.Size = new System.Drawing.Size(712, 361);
             this.tabControlApplyRoom.TabIndex = 1;
+            this.tabControlApplyRoom.SelectedIndexChanged += new System.EventHandler(this.tabControlApplyRoom_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dataGridViewBlock);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.labelInstruction);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -107,47 +114,50 @@
             this.tabPage1.Text = "ApplyRoom";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewBlock
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 108);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(650, 189);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridViewBlock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBlock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBlock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
+            this.ColumnName,
+            this.ColumnStatus,
+            this.ColumnAction});
+            this.dataGridViewBlock.Location = new System.Drawing.Point(26, 108);
+            this.dataGridViewBlock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridViewBlock.Name = "dataGridViewBlock";
+            this.dataGridViewBlock.RowHeadersWidth = 51;
+            this.dataGridViewBlock.RowTemplate.Height = 24;
+            this.dataGridViewBlock.Size = new System.Drawing.Size(650, 189);
+            this.dataGridViewBlock.TabIndex = 2;
+            this.dataGridViewBlock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBlock_CellContentClick);
             // 
-            // Column1
+            // ColumnId
             // 
-            this.Column1.HeaderText = "id";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
+            this.ColumnId.HeaderText = "id";
+            this.ColumnId.MinimumWidth = 6;
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Visible = false;
             // 
-            // Column2
+            // ColumnName
             // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.MinimumWidth = 6;
+            this.ColumnName.Name = "ColumnName";
             // 
-            // Column3
+            // ColumnStatus
             // 
-            this.Column3.HeaderText = "Status";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.ColumnStatus.HeaderText = "Status";
+            this.ColumnStatus.MinimumWidth = 6;
+            this.ColumnStatus.Name = "ColumnStatus";
             // 
-            // Column5
+            // ColumnAction
             // 
-            this.Column5.HeaderText = "Action";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
+            this.ColumnAction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ColumnAction.HeaderText = "Action";
+            this.ColumnAction.MinimumWidth = 6;
+            this.ColumnAction.Name = "ColumnAction";
+            this.ColumnAction.Text = "";
             // 
             // label1
             // 
@@ -337,11 +347,10 @@
             // 
             // buttonPay
             // 
-            this.buttonPay.Enabled = false;
-            this.buttonPay.Location = new System.Drawing.Point(213, 259);
+            this.buttonPay.Location = new System.Drawing.Point(348, 253);
             this.buttonPay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPay.Name = "buttonPay";
-            this.buttonPay.Size = new System.Drawing.Size(84, 29);
+            this.buttonPay.Size = new System.Drawing.Size(93, 43);
             this.buttonPay.TabIndex = 8;
             this.buttonPay.Text = "Pay";
             this.buttonPay.UseVisualStyleBackColor = true;
@@ -350,7 +359,7 @@
             // 
             this.labelDisplayStatus.AutoSize = true;
             this.labelDisplayStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDisplayStatus.Location = new System.Drawing.Point(227, 202);
+            this.labelDisplayStatus.Location = new System.Drawing.Point(396, 184);
             this.labelDisplayStatus.Name = "labelDisplayStatus";
             this.labelDisplayStatus.Size = new System.Drawing.Size(45, 25);
             this.labelDisplayStatus.TabIndex = 7;
@@ -360,7 +369,7 @@
             // 
             this.labelDisplayFee.AutoSize = true;
             this.labelDisplayFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDisplayFee.Location = new System.Drawing.Point(227, 154);
+            this.labelDisplayFee.Location = new System.Drawing.Point(396, 136);
             this.labelDisplayFee.Name = "labelDisplayFee";
             this.labelDisplayFee.Size = new System.Drawing.Size(45, 25);
             this.labelDisplayFee.TabIndex = 6;
@@ -370,7 +379,7 @@
             // 
             this.labelDisplayRoom.AutoSize = true;
             this.labelDisplayRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDisplayRoom.Location = new System.Drawing.Point(227, 105);
+            this.labelDisplayRoom.Location = new System.Drawing.Point(396, 87);
             this.labelDisplayRoom.Name = "labelDisplayRoom";
             this.labelDisplayRoom.Size = new System.Drawing.Size(45, 25);
             this.labelDisplayRoom.TabIndex = 5;
@@ -380,7 +389,7 @@
             // 
             this.labelDisplayBlock.AutoSize = true;
             this.labelDisplayBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDisplayBlock.Location = new System.Drawing.Point(227, 59);
+            this.labelDisplayBlock.Location = new System.Drawing.Point(396, 41);
             this.labelDisplayBlock.Name = "labelDisplayBlock";
             this.labelDisplayBlock.Size = new System.Drawing.Size(45, 25);
             this.labelDisplayBlock.TabIndex = 4;
@@ -390,7 +399,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(74, 202);
+            this.label10.Location = new System.Drawing.Point(243, 184);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 25);
             this.label10.TabIndex = 3;
@@ -400,7 +409,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(74, 154);
+            this.label9.Location = new System.Drawing.Point(243, 136);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 25);
             this.label9.TabIndex = 2;
@@ -410,7 +419,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(74, 105);
+            this.label5.Location = new System.Drawing.Point(243, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 25);
             this.label5.TabIndex = 1;
@@ -420,11 +429,25 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(74, 59);
+            this.label3.Location = new System.Drawing.Point(243, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Block :";
+            // 
+            // satriaManagementDatabaseDataSet
+            // 
+            this.satriaManagementDatabaseDataSet.DataSetName = "SatriaManagementDatabaseDataSet";
+            this.satriaManagementDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // roomsBindingSource
+            // 
+            this.roomsBindingSource.DataMember = "Rooms";
+            this.roomsBindingSource.DataSource = this.satriaManagementDatabaseDataSet;
+            // 
+            // roomsTableAdapter
+            // 
+            this.roomsTableAdapter.ClearBeforeFill = true;
             // 
             // StudentViewForm
             // 
@@ -436,15 +459,19 @@
             this.Controls.Add(this.buttonLogOut);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "StudentViewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentViewForm";
+            this.Load += new System.EventHandler(this.StudentViewForm_Load);
             this.tabControlApplyRoom.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBlock)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.satriaManagementDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,12 +506,15 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private System.Windows.Forms.DataGridView dataGridViewBlock;
         private System.Windows.Forms.RadioButton radioButtonFemale;
         private System.Windows.Forms.RadioButton radioButtonMale;
+        private SatriaManagementDatabaseDataSet satriaManagementDatabaseDataSet;
+        private System.Windows.Forms.BindingSource roomsBindingSource;
+        private SatriaManagementDatabaseDataSetTableAdapters.RoomsTableAdapter roomsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnAction;
     }
 }

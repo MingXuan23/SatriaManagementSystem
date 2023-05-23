@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SatriaManagementDatabaseDataSet" targetNamespace="http://tempuri.org/SatriaManagementDatabaseDataSet.xsd" xmlns:mstns="http://tempuri.org/SatriaManagementDatabaseDataSet.xsd" xmlns="http://tempuri.org/SatriaManagementDatabaseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SatriaManagementDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SatriaManagementDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SatriaManagementSystem__Event_Project_.Properties.Settings.GlobalReference.Default.SatriaManagementDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RoomsTableAdapter" GeneratorDataComponentClassName="RoomsTableAdapter" Name="Rooms" UserDataComponentName="RoomsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SatriaManagementDatabaseConnectionString (Settings)" DbObjectName="SatriaManagementDatabase.dbo.Rooms" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RoomNo FROM dbo.Rooms</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RoomNo" DataSetColumn="RoomNo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SatriaManagementDatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="SatriaManagementDatabaseDataSet" msprop:Generator_DataSetName="SatriaManagementDatabaseDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rooms" msprop:Generator_RowEvHandlerName="RoomsRowChangeEventHandler" msprop:Generator_RowDeletedName="RoomsRowDeleted" msprop:Generator_RowDeletingName="RoomsRowDeleting" msprop:Generator_RowEvArgName="RoomsRowChangeEvent" msprop:Generator_TablePropName="Rooms" msprop:Generator_RowChangedName="RoomsRowChanged" msprop:Generator_RowChangingName="RoomsRowChanging" msprop:Generator_TableClassName="RoomsDataTable" msprop:Generator_RowClassName="RoomsRow" msprop:Generator_TableVarName="tableRooms" msprop:Generator_UserTableName="Rooms">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RoomNo" msprop:Generator_ColumnPropNameInRow="RoomNo" msprop:Generator_ColumnPropNameInTable="RoomNoColumn" msprop:Generator_ColumnVarNameInTable="columnRoomNo" msprop:Generator_UserColumnName="RoomNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
