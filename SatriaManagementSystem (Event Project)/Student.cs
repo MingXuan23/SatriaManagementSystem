@@ -29,6 +29,7 @@ namespace SatriaManagementSystem__Event_Project_
         public virtual User User { get; set; }
 
         SatriaManagementDatabaseEntities ent =new SatriaManagementDatabaseEntities();
+
         public override void addUser()
         {
             if (ent.Users.Any(x => x.ID == this.ID) || ent.Students.Any(x => x.StudentID == this.StudentID))
@@ -54,7 +55,7 @@ namespace SatriaManagementSystem__Event_Project_
 
                 //save for children student
                 student.MatricNumber = this.MatricNumber;
-                student.StudentID = user.ID;
+
                 ent.Users.Add(user);
                 ent.Students.Add(student);
                 ent.SaveChanges();
