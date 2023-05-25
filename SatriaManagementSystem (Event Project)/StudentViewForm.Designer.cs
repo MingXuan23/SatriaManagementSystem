@@ -40,15 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelInstruction = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.radioButtonFemale = new System.Windows.Forms.RadioButton();
-            this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.buttonDiscard = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPhoneNum = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,6 +63,7 @@
             this.satriaManagementDatabaseDataSet = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSet();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSetTableAdapters.RoomsTableAdapter();
+            this.buttonViewReceipt = new System.Windows.Forms.Button();
             this.tabControlApplyRoom.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBlock)).BeginInit();
@@ -181,15 +179,12 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.radioButtonFemale);
-            this.tabPage2.Controls.Add(this.radioButtonMale);
             this.tabPage2.Controls.Add(this.buttonDiscard);
             this.tabPage2.Controls.Add(this.buttonEdit);
             this.tabPage2.Controls.Add(this.textBoxEmail);
             this.tabPage2.Controls.Add(this.textBoxPhoneNum);
             this.tabPage2.Controls.Add(this.textBoxFullName);
             this.tabPage2.Controls.Add(this.textBoxUserName);
-            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label2);
@@ -203,33 +198,9 @@
             this.tabPage2.Text = "Student Info";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // radioButtonFemale
-            // 
-            this.radioButtonFemale.AutoSize = true;
-            this.radioButtonFemale.Location = new System.Drawing.Point(135, 208);
-            this.radioButtonFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioButtonFemale.Name = "radioButtonFemale";
-            this.radioButtonFemale.Size = new System.Drawing.Size(87, 24);
-            this.radioButtonFemale.TabIndex = 31;
-            this.radioButtonFemale.TabStop = true;
-            this.radioButtonFemale.Text = "Female";
-            this.radioButtonFemale.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonMale
-            // 
-            this.radioButtonMale.AutoSize = true;
-            this.radioButtonMale.Location = new System.Drawing.Point(135, 175);
-            this.radioButtonMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioButtonMale.Name = "radioButtonMale";
-            this.radioButtonMale.Size = new System.Drawing.Size(68, 24);
-            this.radioButtonMale.TabIndex = 30;
-            this.radioButtonMale.TabStop = true;
-            this.radioButtonMale.Text = "Male";
-            this.radioButtonMale.UseVisualStyleBackColor = true;
-            // 
             // buttonDiscard
             // 
-            this.buttonDiscard.Location = new System.Drawing.Point(400, 272);
+            this.buttonDiscard.Location = new System.Drawing.Point(373, 198);
             this.buttonDiscard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonDiscard.Name = "buttonDiscard";
             this.buttonDiscard.Size = new System.Drawing.Size(84, 29);
@@ -240,7 +211,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(256, 272);
+            this.buttonEdit.Location = new System.Drawing.Point(229, 198);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(84, 29);
@@ -281,15 +252,6 @@
             this.textBoxUserName.Size = new System.Drawing.Size(193, 26);
             this.textBoxUserName.TabIndex = 21;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Gender :";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -328,6 +290,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonViewReceipt);
             this.tabPage3.Controls.Add(this.buttonPay);
             this.tabPage3.Controls.Add(this.labelDisplayStatus);
             this.tabPage3.Controls.Add(this.labelDisplayFee);
@@ -347,13 +310,14 @@
             // 
             // buttonPay
             // 
-            this.buttonPay.Location = new System.Drawing.Point(348, 253);
+            this.buttonPay.Location = new System.Drawing.Point(248, 231);
             this.buttonPay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPay.Name = "buttonPay";
             this.buttonPay.Size = new System.Drawing.Size(93, 43);
             this.buttonPay.TabIndex = 8;
             this.buttonPay.Text = "Pay";
             this.buttonPay.UseVisualStyleBackColor = true;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
             // 
             // labelDisplayStatus
             // 
@@ -449,6 +413,17 @@
             // 
             this.roomsTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonViewReceipt
+            // 
+            this.buttonViewReceipt.Location = new System.Drawing.Point(401, 220);
+            this.buttonViewReceipt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonViewReceipt.Name = "buttonViewReceipt";
+            this.buttonViewReceipt.Size = new System.Drawing.Size(93, 65);
+            this.buttonViewReceipt.TabIndex = 9;
+            this.buttonViewReceipt.Text = "View Receipt";
+            this.buttonViewReceipt.UseVisualStyleBackColor = true;
+            this.buttonViewReceipt.Click += new System.EventHandler(this.buttonViewReceipt_Click);
+            // 
             // StudentViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -485,7 +460,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelInstruction;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
@@ -507,8 +481,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridViewBlock;
-        private System.Windows.Forms.RadioButton radioButtonFemale;
-        private System.Windows.Forms.RadioButton radioButtonMale;
         private SatriaManagementDatabaseDataSet satriaManagementDatabaseDataSet;
         private System.Windows.Forms.BindingSource roomsBindingSource;
         private SatriaManagementDatabaseDataSetTableAdapters.RoomsTableAdapter roomsTableAdapter;
@@ -516,5 +488,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnAction;
+        private System.Windows.Forms.Button buttonViewReceipt;
     }
 }
