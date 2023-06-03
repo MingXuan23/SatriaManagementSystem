@@ -10,99 +10,82 @@ using System.Windows.Forms;
 
 namespace SatriaManagementSystem__Event_Project_
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form,InterfaceLogin
     {
         SatriaManagementDatabaseEntities ent =new SatriaManagementDatabaseEntities();
         Student student=new Student();
-        //Staff staff=new Staff();
+        Staff staff=new Staff();
         public Form1()
         {
-            if(Properties.Settings.Default.UserID != 0)//keep me signed in is in access
-            {
-                student.getUserByID(Properties.Settings.Default.UserID);
-                this.Hide();
-                new StudentViewForm(student).ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                InitializeComponent();
-            }
+            InitializeComponent();
+
                 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-
+            loadColor();
+            if (Properties.Settings.Default.UserID != 0)//keep me signed in is in access
+            {
+                try
+                {
+                    if(Properties.Settings.Default.UserType == 1)
+                    {
+                        this.Hide();
+                        new StudentViewForm(Properties.Settings.Default.UserID).ShowDialog();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        new Staff_Form(Properties.Settings.Default.UserID).ShowDialog();
+                    }
+                        
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                if (Application.OpenForms.Count != 0)
+                {
+                    this.Show();
+                    loadColor();
+                    reset();
+                }
+                
+                
+            }
         }
 
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        public void loadColor()
         {
-            this.Hide();
-            new  AdminLoginForm().ShowDialog();
-            this.Show();
+            Color color = Properties.Settings.Default.LogInColor;
+            this.BackColor = color;
         }
+
 
         private void linkLabelCreateAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             new RegisterForm().ShowDialog();
+            reset();
             this.Show();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string inputUserName = textBoxUserName.Text;
-            string inputMatricNumber = textBoxMatric.Text;
-            string inputPassword = textBoxPassword.Text;
 
-            if(inputUserName == string.Empty || inputPassword == string.Empty)
-            {
-                MessageBox.Show("Please don't leave username or password empty","Empty Fields");
-                return;
-            }
-            //student try to log-in 
-            try
-            {
-                student.getUserByName(inputUserName);
-                if (inputMatricNumber != student.MatricNumber)
-                {
-                    MessageBox.Show("Invalid matric number!");
-                    textBoxMatric.Focus();
-                    return;
-                }
-                else if (inputPassword != student.Password)
-                {
-                    MessageBox.Show("Invalid password!");
-                    textBoxPassword.Focus();
-                    return;
-                }
-                else//if inputs is valid
-                {
-                    this.Hide();
-                    Properties.Settings.Default.UserID = student.StudentID;
-                    Properties.Settings.Default.Save();
-                    new StudentViewForm(student).ShowDialog();
-                    reset();
-                    this.Show();
-                }
-            }
-            catch (NullReferenceException err)
-            {
-                MessageBox.Show(err.Message);
-                return;
-            }
+            login();
 
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            reset();
+            //reset();
+            Application.Exit();
         }
         private void reset()
         {
-            textBoxUserName.Text = string.Empty;
+
             textBoxMatric.Text = string.Empty;
             textBoxPassword.Text = string.Empty;
             checkBoxShowPw.Checked = false;
@@ -153,6 +136,71 @@ namespace SatriaManagementSystem__Event_Project_
             {
                 checkBoxKeepMe.Checked = false;
             }*/
+        }
+
+
+
+        //interface
+        public void login()
+        {
+            string inputMatricNumber = textBoxMatric.Text;
+            string inputPassword = textBoxPassword.Text;
+
+
+
+            if (inputMatricNumber == string.Empty || inputPassword == string.Empty)
+            {
+                prompt("Please don't leave username or password empty", "Empty Fields");
+                return;
+            }
+            //student try to log-in 
+            try
+            {
+                var student = ent.Users.FirstOrDefault(x => x.Student.MatricNumber == inputMatricNumber && x.Password == inputPassword);
+                if (student == null)
+                {
+                    prompt("The credentials do not match ","Invalid Field");
+                    textBoxMatric.Focus();
+                    return;
+                }
+                this.student.getUserByID(student.ID);
+
+
+                this.Hide();
+                Properties.Settings.Default.UserID = this.student.StudentID;
+                Properties.Settings.Default.UserType = this.student.UserTypeID;
+                Properties.Settings.Default.Save();
+                new StudentViewForm(this.student).ShowDialog();
+                reset();
+                this.Show();
+
+            }
+            catch (NullReferenceException err)
+            {
+                prompt(err.Message,"Error");
+                return;
+            }
+        }
+
+        public void prompt(string msg,string title)
+        {
+           MessageBox.Show(msg,title);
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Hide();
+            new AdminLoginForm().ShowDialog();
+            try
+            {
+                reset();
+                loadColor();
+                this.Show();
+            }
+            catch (Exception err)
+            {
+                //do nothing
+            }
         }
     }
 }

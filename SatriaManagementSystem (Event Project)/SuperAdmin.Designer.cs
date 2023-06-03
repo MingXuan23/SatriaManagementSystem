@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabPageAddNewStaff = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBoxBlockID = new System.Windows.Forms.ComboBox();
+            this.blocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.satriaManagementDatabaseDataSet1 = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSet1();
+            this.numericSalary = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxShowConfirmPass = new System.Windows.Forms.CheckBox();
             this.textBoxConfirmPass = new System.Windows.Forms.TextBox();
             this.labelConfirmPass = new System.Windows.Forms.Label();
-            this.labelStartWorkDate = new System.Windows.Forms.Label();
             this.radioButtonFemale = new System.Windows.Forms.RadioButton();
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.textBoxPhoneNo = new System.Windows.Forms.TextBox();
@@ -45,8 +52,6 @@
             this.labelFullName = new System.Windows.Forms.Label();
             this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxStartWorkDate = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
@@ -60,9 +65,10 @@
             this.StaffBlock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartWorkDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffSalaryPayingStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.StaffPaySalary = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StaffUpdateSalary = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.BlockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,44 +77,51 @@
             this.BlockAsset = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BlockCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BlockStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BlockViewStaff = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabPageAssetBalance = new System.Windows.Forms.TabPage();
-            this.panelAssetWithdrawal = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panelBalanceInquiry = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.radioButtonCashWithdrawal = new System.Windows.Forms.RadioButton();
-            this.radioButtonCheckBalance = new System.Windows.Forms.RadioButton();
-            this.label12 = new System.Windows.Forms.Label();
+            this.tabPageTransaction = new System.Windows.Forms.TabPage();
+            this.comboBoxBlock = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.blocksTableAdapter = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSet1TableAdapters.BlocksTableAdapter();
+            this.satriaManagementDatabaseDataSet2 = new SatriaManagementSystem__Event_Project_.SatriaManagementDatabaseDataSet();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.returnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stylingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tabPageAddNewStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.blocksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.satriaManagementDatabaseDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSalary)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageSalaryDistribution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPageAssetBalance.SuspendLayout();
-            this.panelAssetWithdrawal.SuspendLayout();
-            this.panelBalanceInquiry.SuspendLayout();
+            this.tabPageTransaction.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.satriaManagementDatabaseDataSet2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageAddNewStaff
             // 
+            this.tabPageAddNewStaff.Controls.Add(this.label14);
+            this.tabPageAddNewStaff.Controls.Add(this.comboBoxBlockID);
+            this.tabPageAddNewStaff.Controls.Add(this.numericSalary);
+            this.tabPageAddNewStaff.Controls.Add(this.label13);
+            this.tabPageAddNewStaff.Controls.Add(this.textBoxPassword);
             this.tabPageAddNewStaff.Controls.Add(this.label1);
             this.tabPageAddNewStaff.Controls.Add(this.checkBoxShowConfirmPass);
             this.tabPageAddNewStaff.Controls.Add(this.textBoxConfirmPass);
             this.tabPageAddNewStaff.Controls.Add(this.labelConfirmPass);
-            this.tabPageAddNewStaff.Controls.Add(this.labelStartWorkDate);
             this.tabPageAddNewStaff.Controls.Add(this.radioButtonFemale);
             this.tabPageAddNewStaff.Controls.Add(this.radioButtonMale);
             this.tabPageAddNewStaff.Controls.Add(this.textBoxPhoneNo);
@@ -120,8 +133,6 @@
             this.tabPageAddNewStaff.Controls.Add(this.labelFullName);
             this.tabPageAddNewStaff.Controls.Add(this.checkBoxShowPassword);
             this.tabPageAddNewStaff.Controls.Add(this.textBoxUsername);
-            this.tabPageAddNewStaff.Controls.Add(this.textBoxPassword);
-            this.tabPageAddNewStaff.Controls.Add(this.textBoxStartWorkDate);
             this.tabPageAddNewStaff.Controls.Add(this.labelPassword);
             this.tabPageAddNewStaff.Controls.Add(this.labelUsername);
             this.tabPageAddNewStaff.Controls.Add(this.buttonExit);
@@ -129,10 +140,69 @@
             this.tabPageAddNewStaff.Location = new System.Drawing.Point(4, 25);
             this.tabPageAddNewStaff.Name = "tabPageAddNewStaff";
             this.tabPageAddNewStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddNewStaff.Size = new System.Drawing.Size(821, 368);
+            this.tabPageAddNewStaff.Size = new System.Drawing.Size(821, 378);
             this.tabPageAddNewStaff.TabIndex = 0;
             this.tabPageAddNewStaff.Text = "Add New Staff";
             this.tabPageAddNewStaff.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(141, 292);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 16);
+            this.label14.TabIndex = 90;
+            this.label14.Text = "Block:";
+            // 
+            // comboBoxBlockID
+            // 
+            this.comboBoxBlockID.DataSource = this.blocksBindingSource;
+            this.comboBoxBlockID.DisplayMember = "Name";
+            this.comboBoxBlockID.FormattingEnabled = true;
+            this.comboBoxBlockID.Location = new System.Drawing.Point(207, 289);
+            this.comboBoxBlockID.Name = "comboBoxBlockID";
+            this.comboBoxBlockID.Size = new System.Drawing.Size(153, 24);
+            this.comboBoxBlockID.TabIndex = 89;
+            this.comboBoxBlockID.ValueMember = "ID";
+            // 
+            // blocksBindingSource
+            // 
+            this.blocksBindingSource.DataMember = "Blocks";
+            this.blocksBindingSource.DataSource = this.satriaManagementDatabaseDataSet1;
+            // 
+            // satriaManagementDatabaseDataSet1
+            // 
+            this.satriaManagementDatabaseDataSet1.DataSetName = "SatriaManagementDatabaseDataSet1";
+            this.satriaManagementDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // numericSalary
+            // 
+            this.numericSalary.Location = new System.Drawing.Point(580, 187);
+            this.numericSalary.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numericSalary.Name = "numericSalary";
+            this.numericSalary.Size = new System.Drawing.Size(153, 22);
+            this.numericSalary.TabIndex = 88;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(459, 188);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 16);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "Salary:";
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(207, 188);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(153, 22);
+            this.textBoxPassword.TabIndex = 86;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -153,6 +223,7 @@
             this.checkBoxShowConfirmPass.TabIndex = 84;
             this.checkBoxShowConfirmPass.Text = "Show";
             this.checkBoxShowConfirmPass.UseVisualStyleBackColor = true;
+            this.checkBoxShowConfirmPass.CheckedChanged += new System.EventHandler(this.checkBoxShowConfirmPass_CheckedChanged);
             // 
             // textBoxConfirmPass
             // 
@@ -160,6 +231,7 @@
             this.textBoxConfirmPass.Name = "textBoxConfirmPass";
             this.textBoxConfirmPass.Size = new System.Drawing.Size(153, 22);
             this.textBoxConfirmPass.TabIndex = 83;
+            this.textBoxConfirmPass.UseSystemPasswordChar = true;
             // 
             // labelConfirmPass
             // 
@@ -170,19 +242,10 @@
             this.labelConfirmPass.TabIndex = 82;
             this.labelConfirmPass.Text = "Confirm Your Password :";
             // 
-            // labelStartWorkDate
-            // 
-            this.labelStartWorkDate.AutoSize = true;
-            this.labelStartWorkDate.Location = new System.Drawing.Point(459, 191);
-            this.labelStartWorkDate.Name = "labelStartWorkDate";
-            this.labelStartWorkDate.Size = new System.Drawing.Size(107, 16);
-            this.labelStartWorkDate.TabIndex = 81;
-            this.labelStartWorkDate.Text = "Start Work Date :";
-            // 
             // radioButtonFemale
             // 
             this.radioButtonFemale.AutoSize = true;
-            this.radioButtonFemale.Location = new System.Drawing.Point(580, 258);
+            this.radioButtonFemale.Location = new System.Drawing.Point(580, 257);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(74, 20);
             this.radioButtonFemale.TabIndex = 80;
@@ -193,7 +256,7 @@
             // radioButtonMale
             // 
             this.radioButtonMale.AutoSize = true;
-            this.radioButtonMale.Location = new System.Drawing.Point(580, 232);
+            this.radioButtonMale.Location = new System.Drawing.Point(580, 231);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(58, 20);
             this.radioButtonMale.TabIndex = 79;
@@ -225,7 +288,7 @@
             // labelGender
             // 
             this.labelGender.AutoSize = true;
-            this.labelGender.Location = new System.Drawing.Point(459, 233);
+            this.labelGender.Location = new System.Drawing.Point(459, 232);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(58, 16);
             this.labelGender.TabIndex = 75;
@@ -267,6 +330,7 @@
             this.checkBoxShowPassword.TabIndex = 71;
             this.checkBoxShowPassword.Text = "Show";
             this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
             // 
             // textBoxUsername
             // 
@@ -274,21 +338,6 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(153, 22);
             this.textBoxUsername.TabIndex = 70;
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Location = new System.Drawing.Point(207, 188);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.ReadOnly = true;
-            this.textBoxPassword.Size = new System.Drawing.Size(153, 22);
-            this.textBoxPassword.TabIndex = 69;
-            // 
-            // textBoxStartWorkDate
-            // 
-            this.textBoxStartWorkDate.Location = new System.Drawing.Point(580, 187);
-            this.textBoxStartWorkDate.Name = "textBoxStartWorkDate";
-            this.textBoxStartWorkDate.Size = new System.Drawing.Size(153, 22);
-            this.textBoxStartWorkDate.TabIndex = 67;
             // 
             // labelPassword
             // 
@@ -314,8 +363,9 @@
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(85, 36);
             this.buttonExit.TabIndex = 38;
-            this.buttonExit.Text = "Exit";
+            this.buttonExit.Text = "Reset";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonSave
             // 
@@ -325,16 +375,17 @@
             this.buttonSave.TabIndex = 37;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageAddNewStaff);
             this.tabControl1.Controls.Add(this.tabPageSalaryDistribution);
-            this.tabControl1.Controls.Add(this.tabPageAssetBalance);
+            this.tabControl1.Controls.Add(this.tabPageTransaction);
             this.tabControl1.Location = new System.Drawing.Point(23, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(829, 397);
+            this.tabControl1.Size = new System.Drawing.Size(829, 407);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPageSalaryDistribution
@@ -345,7 +396,7 @@
             this.tabPageSalaryDistribution.Controls.Add(this.dataGridView2);
             this.tabPageSalaryDistribution.Location = new System.Drawing.Point(4, 25);
             this.tabPageSalaryDistribution.Name = "tabPageSalaryDistribution";
-            this.tabPageSalaryDistribution.Size = new System.Drawing.Size(821, 368);
+            this.tabPageSalaryDistribution.Size = new System.Drawing.Size(821, 378);
             this.tabPageSalaryDistribution.TabIndex = 1;
             this.tabPageSalaryDistribution.Text = "Staff Salary Distribution";
             this.tabPageSalaryDistribution.UseVisualStyleBackColor = true;
@@ -370,22 +421,25 @@
             this.StaffBlock,
             this.StartWorkDate,
             this.StaffSalary,
-            this.StaffSalaryPayingStatus,
             this.StaffPaySalary,
-            this.StaffUpdateSalary});
+            this.StaffUpdateSalary,
+            this.Column1,
+            this.Column2});
             this.dataGridView3.Location = new System.Drawing.Point(25, 218);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(771, 114);
+            this.dataGridView3.Size = new System.Drawing.Size(771, 147);
             this.dataGridView3.TabIndex = 10;
             this.dataGridView3.Visible = false;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // StaffID
             // 
             this.StaffID.HeaderText = "ID";
             this.StaffID.MinimumWidth = 6;
             this.StaffID.Name = "StaffID";
+            this.StaffID.Visible = false;
             // 
             // StaffName
             // 
@@ -411,14 +465,6 @@
             this.StaffSalary.MinimumWidth = 6;
             this.StaffSalary.Name = "StaffSalary";
             // 
-            // StaffSalaryPayingStatus
-            // 
-            this.StaffSalaryPayingStatus.HeaderText = "Paying Status";
-            this.StaffSalaryPayingStatus.MinimumWidth = 6;
-            this.StaffSalaryPayingStatus.Name = "StaffSalaryPayingStatus";
-            this.StaffSalaryPayingStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.StaffSalaryPayingStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // StaffPaySalary
             // 
             this.StaffPaySalary.HeaderText = "Pay Salary";
@@ -434,6 +480,20 @@
             this.StaffUpdateSalary.Name = "StaffUpdateSalary";
             this.StaffUpdateSalary.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.StaffUpdateSalary.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Paymonth";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "PayFrequency";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
             // 
             // label2
             // 
@@ -456,20 +516,22 @@
             this.BlockGender,
             this.BlockAsset,
             this.BlockCapacity,
-            this.BlockStatus,
-            this.BlockViewStaff});
+            this.BlockStatus});
             this.dataGridView2.Location = new System.Drawing.Point(28, 46);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(768, 115);
+            this.dataGridView2.Size = new System.Drawing.Size(768, 141);
             this.dataGridView2.TabIndex = 8;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView2_MouseClick);
             // 
             // BlockID
             // 
             this.BlockID.HeaderText = "ID";
             this.BlockID.MinimumWidth = 6;
             this.BlockID.Name = "BlockID";
+            this.BlockID.Visible = false;
             // 
             // BlockName
             // 
@@ -501,224 +563,169 @@
             this.BlockStatus.MinimumWidth = 6;
             this.BlockStatus.Name = "BlockStatus";
             // 
-            // BlockViewStaff
+            // tabPageTransaction
             // 
-            this.BlockViewStaff.HeaderText = "View Staff";
-            this.BlockViewStaff.MinimumWidth = 6;
-            this.BlockViewStaff.Name = "BlockViewStaff";
+            this.tabPageTransaction.Controls.Add(this.comboBoxBlock);
+            this.tabPageTransaction.Controls.Add(this.label16);
+            this.tabPageTransaction.Controls.Add(this.comboBoxType);
+            this.tabPageTransaction.Controls.Add(this.dataGridView1);
+            this.tabPageTransaction.Controls.Add(this.label15);
+            this.tabPageTransaction.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTransaction.Name = "tabPageTransaction";
+            this.tabPageTransaction.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTransaction.Size = new System.Drawing.Size(821, 378);
+            this.tabPageTransaction.TabIndex = 3;
+            this.tabPageTransaction.Text = "Transaction List";
+            this.tabPageTransaction.UseVisualStyleBackColor = true;
             // 
-            // tabPageAssetBalance
+            // comboBoxBlock
             // 
-            this.tabPageAssetBalance.Controls.Add(this.panelAssetWithdrawal);
-            this.tabPageAssetBalance.Controls.Add(this.panelBalanceInquiry);
-            this.tabPageAssetBalance.Controls.Add(this.radioButtonCashWithdrawal);
-            this.tabPageAssetBalance.Controls.Add(this.radioButtonCheckBalance);
-            this.tabPageAssetBalance.Controls.Add(this.label12);
-            this.tabPageAssetBalance.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAssetBalance.Name = "tabPageAssetBalance";
-            this.tabPageAssetBalance.Size = new System.Drawing.Size(821, 368);
-            this.tabPageAssetBalance.TabIndex = 2;
-            this.tabPageAssetBalance.Text = "Asset Balance Operation";
-            this.tabPageAssetBalance.UseVisualStyleBackColor = true;
+            this.comboBoxBlock.FormattingEnabled = true;
+            this.comboBoxBlock.Items.AddRange(new object[] {
+            "Deposit",
+            "Withdrawal"});
+            this.comboBoxBlock.Location = new System.Drawing.Point(405, 21);
+            this.comboBoxBlock.Name = "comboBoxBlock";
+            this.comboBoxBlock.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxBlock.TabIndex = 4;
+            this.comboBoxBlock.SelectedIndexChanged += new System.EventHandler(this.comboBoxBlock_SelectedIndexChanged);
             // 
-            // panelAssetWithdrawal
+            // label16
             // 
-            this.panelAssetWithdrawal.Controls.Add(this.label9);
-            this.panelAssetWithdrawal.Controls.Add(this.label8);
-            this.panelAssetWithdrawal.Controls.Add(this.label11);
-            this.panelAssetWithdrawal.Controls.Add(this.label10);
-            this.panelAssetWithdrawal.Controls.Add(this.button3);
-            this.panelAssetWithdrawal.Controls.Add(this.textBox1);
-            this.panelAssetWithdrawal.Location = new System.Drawing.Point(418, 91);
-            this.panelAssetWithdrawal.Name = "panelAssetWithdrawal";
-            this.panelAssetWithdrawal.Size = new System.Drawing.Size(377, 253);
-            this.panelAssetWithdrawal.TabIndex = 21;
-            this.panelAssetWithdrawal.Visible = false;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(335, 24);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 16);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Block";
             // 
-            // label9
+            // comboBoxType
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(137, 15);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 16);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Asset Withdrawal";
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Items.AddRange(new object[] {
+            "All",
+            "Deposit",
+            "Withdrawal"});
+            this.comboBoxType.Location = new System.Drawing.Point(144, 21);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxType.TabIndex = 2;
+            this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.comboBoxType_SelectedIndexChanged);
             // 
-            // label8
+            // dataGridView1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 16);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Available Asset Balance : ";
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column8,
+            this.Column6,
+            this.Column7});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 58);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(768, 301);
+            this.dataGridView1.TabIndex = 1;
             // 
-            // label11
+            // Column3
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 203);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(148, 16);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Current Asset Balance : ";
-            this.label11.Visible = false;
+            this.Column3.HeaderText = "Transaction ID";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
             // 
-            // label10
+            // Column4
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(68, 114);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 16);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Desired Amount : ";
+            this.Column4.HeaderText = "Amount";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
             // 
-            // button3
+            // Column5
             // 
-            this.button3.Location = new System.Drawing.Point(273, 155);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Column5.HeaderText = "Date";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
             // 
-            // textBox1
+            // Column8
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 22);
-            this.textBox1.TabIndex = 17;
+            this.Column8.HeaderText = "Block";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
             // 
-            // panelBalanceInquiry
+            // Column6
             // 
-            this.panelBalanceInquiry.Controls.Add(this.comboBox1);
-            this.panelBalanceInquiry.Controls.Add(this.label4);
-            this.panelBalanceInquiry.Controls.Add(this.label5);
-            this.panelBalanceInquiry.Controls.Add(this.label6);
-            this.panelBalanceInquiry.Controls.Add(this.button1);
-            this.panelBalanceInquiry.Controls.Add(this.button2);
-            this.panelBalanceInquiry.Controls.Add(this.buttonCancel);
-            this.panelBalanceInquiry.Controls.Add(this.label7);
-            this.panelBalanceInquiry.Location = new System.Drawing.Point(20, 91);
-            this.panelBalanceInquiry.Name = "panelBalanceInquiry";
-            this.panelBalanceInquiry.Size = new System.Drawing.Size(389, 253);
-            this.panelBalanceInquiry.TabIndex = 20;
-            this.panelBalanceInquiry.Visible = false;
+            this.Column6.HeaderText = "Transaction Type";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
             // 
-            // comboBox1
+            // Column7
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Block Name...",
-            "Kasturi",
-            "Lekir",
-            "Lekiu",
-            "Tuah",
-            "Jebat"});
-            this.comboBox1.Location = new System.Drawing.Point(160, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 24);
-            this.comboBox1.TabIndex = 3;
+            this.Column7.HeaderText = "Description";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
             // 
-            // label4
+            // label15
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(119, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Asset Balance Inquiry";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(26, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 16);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Transaction List";
             // 
-            // label5
+            // blocksTableAdapter
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 162);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(318, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Current Available Asset Balance : (+CurrentBalance) ";
-            this.label5.Visible = false;
+            this.blocksTableAdapter.ClearBeforeFill = true;
             // 
-            // label6
+            // satriaManagementDatabaseDataSet2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(54, 63);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 16);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Choose Block : ";
+            this.satriaManagementDatabaseDataSet2.DataSetName = "SatriaManagementDatabaseDataSet";
+            this.satriaManagementDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button1
+            // menuStrip1
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(160, 104);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 26);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Check Balance";
-            this.button1.UseVisualStyleBackColor = true;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.returnToolStripMenuItem,
+            this.logOutToolStripMenuItem,
+            this.exitToolStripMenuItem,
+            this.stylingToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(879, 28);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // button2
+            // returnToolStripMenuItem
             // 
-            this.button2.Location = new System.Drawing.Point(196, 196);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Continue";
-            this.button2.UseVisualStyleBackColor = true;
+            this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
+            this.returnToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.returnToolStripMenuItem.Text = "Return";
+            this.returnToolStripMenuItem.Click += new System.EventHandler(this.returnToolStripMenuItem_Click);
             // 
-            // buttonCancel
+            // logOutToolStripMenuItem
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(294, 196);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 9;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // label7
+            // exitToolStripMenuItem
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 199);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 16);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Do you wish to continue?";
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // radioButtonCashWithdrawal
+            // stylingToolStripMenuItem
             // 
-            this.radioButtonCashWithdrawal.AutoSize = true;
-            this.radioButtonCashWithdrawal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonCashWithdrawal.Location = new System.Drawing.Point(418, 38);
-            this.radioButtonCashWithdrawal.Name = "radioButtonCashWithdrawal";
-            this.radioButtonCashWithdrawal.Size = new System.Drawing.Size(147, 20);
-            this.radioButtonCashWithdrawal.TabIndex = 13;
-            this.radioButtonCashWithdrawal.TabStop = true;
-            this.radioButtonCashWithdrawal.Text = "Asset Withdrawal";
-            this.radioButtonCashWithdrawal.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonCheckBalance
-            // 
-            this.radioButtonCheckBalance.AutoSize = true;
-            this.radioButtonCheckBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonCheckBalance.Location = new System.Drawing.Point(232, 38);
-            this.radioButtonCheckBalance.Name = "radioButtonCheckBalance";
-            this.radioButtonCheckBalance.Size = new System.Drawing.Size(178, 20);
-            this.radioButtonCheckBalance.TabIndex = 12;
-            this.radioButtonCheckBalance.TabStop = true;
-            this.radioButtonCheckBalance.Text = "Asset Balance Inquiry";
-            this.radioButtonCheckBalance.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(25, 38);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(199, 16);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Choose Desired Operation :";
+            this.stylingToolStripMenuItem.Name = "stylingToolStripMenuItem";
+            this.stylingToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.stylingToolStripMenuItem.Text = "Styling";
+            this.stylingToolStripMenuItem.Click += new System.EventHandler(this.stylingToolStripMenuItem_Click);
             // 
             // SuperAdminForm
             // 
@@ -726,23 +733,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 450);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "SuperAdminForm";
             this.Text = "SuperAdminForm";
             this.Load += new System.EventHandler(this.SuperAdminForm_Load);
             this.tabPageAddNewStaff.ResumeLayout(false);
             this.tabPageAddNewStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.blocksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.satriaManagementDatabaseDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSalary)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPageSalaryDistribution.ResumeLayout(false);
             this.tabPageSalaryDistribution.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPageAssetBalance.ResumeLayout(false);
-            this.tabPageAssetBalance.PerformLayout();
-            this.panelAssetWithdrawal.ResumeLayout(false);
-            this.panelAssetWithdrawal.PerformLayout();
-            this.panelBalanceInquiry.ResumeLayout(false);
-            this.panelBalanceInquiry.PerformLayout();
+            this.tabPageTransaction.ResumeLayout(false);
+            this.tabPageTransaction.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.satriaManagementDatabaseDataSet2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -754,7 +767,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxConfirmPass;
         private System.Windows.Forms.Label labelConfirmPass;
-        private System.Windows.Forms.Label labelStartWorkDate;
         private System.Windows.Forms.RadioButton radioButtonFemale;
         private System.Windows.Forms.RadioButton radioButtonMale;
         private System.Windows.Forms.TextBox textBoxPhoneNo;
@@ -766,8 +778,6 @@
         private System.Windows.Forms.Label labelFullName;
         private System.Windows.Forms.CheckBox checkBoxShowPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxStartWorkDate;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.CheckBox checkBoxShowConfirmPass;
@@ -775,42 +785,49 @@
         private System.Windows.Forms.TabPage tabPageSalaryDistribution;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlockID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlockName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlockGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlockAsset;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlockCapacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn BlockStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn BlockViewStaff;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.ComboBox comboBoxBlockID;
+        private System.Windows.Forms.NumericUpDown numericSalary;
+        private System.Windows.Forms.Label label13;
+        private SatriaManagementDatabaseDataSet1 satriaManagementDatabaseDataSet1;
+        private System.Windows.Forms.BindingSource blocksBindingSource;
+        private SatriaManagementDatabaseDataSet1TableAdapters.BlocksTableAdapter blocksTableAdapter;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffBlock;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartWorkDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffSalary;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn StaffSalaryPayingStatus;
         private System.Windows.Forms.DataGridViewButtonColumn StaffPaySalary;
         private System.Windows.Forms.DataGridViewButtonColumn StaffUpdateSalary;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabPage tabPageAssetBalance;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton radioButtonCashWithdrawal;
-        private System.Windows.Forms.RadioButton radioButtonCheckBalance;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panelAssetWithdrawal;
-        private System.Windows.Forms.Panel panelBalanceInquiry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.TabPage tabPageTransaction;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBoxBlock;
+        private System.Windows.Forms.Label label16;
+        private SatriaManagementDatabaseDataSet satriaManagementDatabaseDataSet2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stylingToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

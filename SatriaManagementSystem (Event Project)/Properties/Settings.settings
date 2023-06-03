@@ -13,5 +13,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=CHUAHMX\SQLEXPRESS;Initial Catalog=SatriaManagementDatabase;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="UserType" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LogInColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Control</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

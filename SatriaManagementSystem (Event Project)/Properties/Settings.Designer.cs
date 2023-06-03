@@ -45,5 +45,29 @@ namespace SatriaManagementSystem__Event_Project_.Properties {
                 return ((string)(this["SatriaManagementDatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long UserType {
+            get {
+                return ((long)(this["UserType"]));
+            }
+            set {
+                this["UserType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control")]
+        public global::System.Drawing.Color LogInColor {
+            get {
+                return ((global::System.Drawing.Color)(this["LogInColor"]));
+            }
+            set {
+                this["LogInColor"] = value;
+            }
+        }
     }
 }

@@ -44,6 +44,11 @@ namespace SatriaManagementSystem__Event_Project_
                 textBoxComPw.Text = string.Empty;
                 return;
             }
+            else if (!decimal.TryParse(textBoxPhoneNum.Text, out decimal value))
+            {
+                MessageBox.Show("Please key in valid phone num", "Invalid Field");
+                return;
+            }
             else//if inputs are valid
             {
                 try
