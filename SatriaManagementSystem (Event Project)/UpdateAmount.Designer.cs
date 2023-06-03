@@ -120,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpdate);
             this.Name = "UpdateAmount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateAmount";
             this.Load += new System.EventHandler(this.UpdateAmount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpdate)).EndInit();

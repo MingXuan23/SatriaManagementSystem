@@ -64,6 +64,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(155, 22);
             this.textBoxPassword.TabIndex = 14;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // textBoxUserName
             // 
@@ -71,6 +72,7 @@
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(156, 22);
             this.textBoxUserName.TabIndex = 13;
+            this.textBoxUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUserName_KeyDown);
             // 
             // label3
             // 
@@ -90,6 +92,8 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.MouseLeave += new System.EventHandler(this.buttonCancel_MouseLeave);
+            this.buttonCancel.MouseHover += new System.EventHandler(this.buttonCancel_MouseHover);
             // 
             // buttonLogin
             // 
@@ -100,6 +104,8 @@
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
+            this.buttonLogin.MouseHover += new System.EventHandler(this.buttonLogin_MouseHover);
             // 
             // checkBoxShowPw
             // 

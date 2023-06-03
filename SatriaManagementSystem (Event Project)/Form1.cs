@@ -202,5 +202,42 @@ namespace SatriaManagementSystem__Event_Project_
                 //do nothing
             }
         }
+
+        private void textBoxMatric_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
+            }
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login();
+            }
+        }
+
+        private void buttonLogin_MouseHover(object sender, EventArgs e)
+        {
+            buttonLogin.BackColor = Color.LightSkyBlue;
+
+        }
+
+        private void buttonLogin_MouseLeave(object sender, EventArgs e)
+        {
+            buttonLogin.BackColor = Color.WhiteSmoke;
+        }
+
+        private void buttonCancel_MouseHover(object sender, EventArgs e)
+        {
+            buttonCancel.BackColor = Color.PaleVioletRed;
+        }
+
+        private void buttonCancel_MouseLeave(object sender, EventArgs e)
+        {
+            buttonCancel.BackColor = Color.WhiteSmoke;
+        }
     }
 }

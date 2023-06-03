@@ -527,6 +527,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Staff_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffForm";
             this.Load += new System.EventHandler(this.StaffForm_Load);
             this.tabControl1.ResumeLayout(false);

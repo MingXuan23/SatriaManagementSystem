@@ -736,6 +736,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SuperAdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuperAdminForm";
             this.Load += new System.EventHandler(this.SuperAdminForm_Load);
             this.tabPageAddNewStaff.ResumeLayout(false);

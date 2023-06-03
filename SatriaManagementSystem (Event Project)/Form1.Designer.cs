@@ -70,6 +70,8 @@
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
+            this.buttonLogin.MouseHover += new System.EventHandler(this.buttonLogin_MouseHover);
             // 
             // buttonCancel
             // 
@@ -80,6 +82,8 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.MouseLeave += new System.EventHandler(this.buttonCancel_MouseLeave);
+            this.buttonCancel.MouseHover += new System.EventHandler(this.buttonCancel_MouseHover);
             // 
             // labelNewMember
             // 
@@ -107,6 +111,7 @@
             this.textBoxMatric.Name = "textBoxMatric";
             this.textBoxMatric.Size = new System.Drawing.Size(176, 22);
             this.textBoxMatric.TabIndex = 9;
+            this.textBoxMatric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMatric_KeyDown);
             // 
             // textBoxPassword
             // 
@@ -115,6 +120,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(176, 22);
             this.textBoxPassword.TabIndex = 10;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // groupBox1
             // 
@@ -128,7 +134,6 @@
             this.groupBox1.Size = new System.Drawing.Size(619, 170);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-          
             // 
             // checkBoxShowPw
             // 
