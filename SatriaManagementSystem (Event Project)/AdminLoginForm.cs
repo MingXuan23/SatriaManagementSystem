@@ -25,10 +25,14 @@ namespace SatriaManagementSystem__Event_Project_
         }
 
 
-
+        public void loadColor()
+        {
+            Color color = Properties.Settings.Default.LogInColor;
+            this.BackColor = color;
+        }
         private void AdminLoginForm_Load(object sender, EventArgs e)
         {
-
+            loadColor();
         }
 
         private void checkBoxShowPw_CheckedChanged(object sender, EventArgs e)

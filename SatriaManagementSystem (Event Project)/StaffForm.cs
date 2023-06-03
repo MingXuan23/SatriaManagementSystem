@@ -20,6 +20,15 @@ namespace SatriaManagementSystem__Event_Project_
         {
             InitializeComponent();
         }
+        public void loadColor()
+        {
+            Color color = Properties.Settings.Default.LogInColor;
+            this.BackColor = color;
+            foreach (Control control in tabControl1.Controls)
+            {
+                control.BackColor = color;
+            }
+        }
         public Staff_Form(long id)
         {
             InitializeComponent();
@@ -68,6 +77,7 @@ namespace SatriaManagementSystem__Event_Project_
             initializeInformation();
             textBoxSearchStudent.ForeColor = Color.Gray;
             fetchBlock();
+            loadColor();
         }
 
         private void linkLabelSuperAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -305,25 +315,40 @@ namespace SatriaManagementSystem__Event_Project_
                 var id=dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 if (id == null)
                     return;
+
+
                 bool status = bool.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
                 var checkboxCell = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells[6];
                 if (status)
                 {
-                    string message = "Do you confirm to check out this student?";
-                    var studentId = long.Parse(id.ToString());
-                    var studentRoom = ent.Student_Room.FirstOrDefault(x => x.StudentID == studentId && x.Status == "Check-in");
-                    if (studentRoom.TransactionID == null)
-                        message += "\nWarning:This student did not settle his/her payment yet";
-                    var result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.OKCancel);
-                    if (result == DialogResult.OK)
+                    try
                     {
+                        string message = "Do you confirm to check out this student?";
+                        var studentId = long.Parse(id.ToString());
+                        var studentRoom = ent.Student_Room.FirstOrDefault(x => x.StudentID == studentId && x.Status == "Check-in");
+                        if (studentRoom.TransactionID == null)
+                            message += "\nWarning:This student did not settle his/her payment yet";
+                        var result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.OKCancel);
+                        if (result == DialogResult.OK)
+                        {
 
-                        studentRoom.Status = "Check-out";
-                        ent.SaveChanges();
+                            studentRoom.Status = "Check-out";
+                            ent.SaveChanges();
+                        }
+                    }catch (Exception ex)
+                    {
+                        fetchStudent();
+                        return;
                     }
+                    
                 }
                 fetchStudent();
             }
+        }
+
+        private void Staff_Form_VisibleChanged(object sender, EventArgs e)
+        {
+            loadColor();
         }
     }
 }

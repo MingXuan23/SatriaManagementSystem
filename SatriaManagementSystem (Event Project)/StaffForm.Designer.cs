@@ -72,9 +72,9 @@
             this.BlockUpdateRoomFee = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BlockViewStudent = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.returnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.returnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPageMyInformation.SuspendLayout();
             this.tabPageSearchStudent.SuspendLayout();
@@ -497,6 +497,13 @@
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // returnToolStripMenuItem
+            // 
+            this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
+            this.returnToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.returnToolStripMenuItem.Text = "Return";
+            this.returnToolStripMenuItem.Click += new System.EventHandler(this.returnToolStripMenuItem_Click);
+            // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
@@ -511,13 +518,6 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // returnToolStripMenuItem
-            // 
-            this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
-            this.returnToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
-            this.returnToolStripMenuItem.Text = "Return";
-            this.returnToolStripMenuItem.Click += new System.EventHandler(this.returnToolStripMenuItem_Click);
-            // 
             // Staff_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -530,6 +530,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffForm";
             this.Load += new System.EventHandler(this.StaffForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.Staff_Form_VisibleChanged);
             this.tabControl1.ResumeLayout(false);
             this.tabPageMyInformation.ResumeLayout(false);
             this.tabPageMyInformation.PerformLayout();

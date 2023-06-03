@@ -22,8 +22,20 @@ namespace SatriaManagementSystem__Event_Project_
             InitializeComponent();
         }
 
+        public void loadColor()
+        {
+
+            Color color = Properties.Settings.Default.LogInColor;
+            this.BackColor = color;
+            foreach (Control control in tabControl1.Controls)
+            {
+                control.BackColor = color;
+            }
+
+        }
         private void SuperAdminForm_Load(object sender, EventArgs e)
         {
+            loadColor();
             initialiseStaff();
             var blocks = ent.Blocks.ToList();
             comboBoxBlock.Items.Clear();
@@ -216,6 +228,7 @@ namespace SatriaManagementSystem__Event_Project_
             {
                 newStaff.addUser();
                 resetAdd();
+                MessageBox.Show("Add staff successfully");
 
             }
             catch(Exception ex)
@@ -435,6 +448,7 @@ namespace SatriaManagementSystem__Event_Project_
                 Properties.Settings.Default.LogInColor = colorDialog1.Color;
                 Properties.Settings.Default.Save();
             }
+            loadColor();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

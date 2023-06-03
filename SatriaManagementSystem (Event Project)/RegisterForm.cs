@@ -79,5 +79,15 @@ namespace SatriaManagementSystem__Event_Project_
         {
             this.Close();
         }
+
+        public void loadColor()
+        {
+            Color color = Properties.Settings.Default.LogInColor;
+            this.BackColor = color;
+        }
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            loadColor();
+        }
     }
 }

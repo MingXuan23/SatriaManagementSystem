@@ -48,8 +48,19 @@ namespace SatriaManagementSystem__Event_Project_
             loadStudentInfo();
             loadRoomDetails();
         }
+
+        public void loadColor()
+        {
+            Color color = Properties.Settings.Default.LogInColor;
+            this.BackColor = color;
+            foreach (Control control in tabControlApplyRoom.Controls)
+            {
+                control.BackColor = color;
+            }
+        }
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
+            loadColor();
             this.haveRoom = ent.Student_Room.Any(x => x.StudentID == student.ID && x.Status == "Check-in");
 
             if (this.haveRoom)
