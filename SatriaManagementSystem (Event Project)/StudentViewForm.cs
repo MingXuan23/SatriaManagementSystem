@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO;
 
+
 namespace SatriaManagementSystem__Event_Project_
 {
     public partial class StudentViewForm : Form
@@ -177,6 +178,11 @@ namespace SatriaManagementSystem__Event_Project_
                 MessageBox.Show("Please key in valid phone num", "Invalid Field");
                 return;
             }
+            else if (ent.Users.Any(x => x.Username == textBoxUserName.Text && x.ID!=student.ID))
+            {
+                MessageBox.Show("This username have been taken", "Invalid Field");
+                return;
+            }
             else
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to modify your personal details?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -237,11 +243,12 @@ namespace SatriaManagementSystem__Event_Project_
                 {
                     string gender = student.Gender ? "Female" : "Male";
                     MessageBox.Show("This block is specific for " + gender);
+                    return;
                 }     
             }
             if (block != null && !ent.Student_Room.Any(x => x.StudentID == student.ID &&x.Status=="Check-in"))
             {
-                var rooms = block.Rooms.Where(x => x.Student_Room.Where(y=>y.Status != "Check-out").Count() < x.MaxCapacity).ToList();
+                var rooms = block.Rooms.Where(x => x.Student_Room.Where(y=>y.Status != "Check-out").Count() < x.MaxCapacity).ToList().OrderBy(x=>x.RoomNo);
                 Student_Room studentRoom = new Student_Room();
                 studentRoom.ID = ent.Student_Room.Any() ? ent.Student_Room.Max(x => x.ID + 1): 1;
                 studentRoom.RoomID = long.Parse(rooms.FirstOrDefault().ID.ToString());
@@ -289,7 +296,7 @@ namespace SatriaManagementSystem__Event_Project_
                 ent.SaveChanges();
            
                 // Generate the PDF receipt
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                //SaveFileDialog saveFileDialog =saveFileDialog
                 saveFileDialog.Filter = "PDF Files|*.pdf";
                 saveFileDialog.Title = "Save Receipt";
                 saveFileDialog.FileName = $"Receipt_{studentRoomTransaction}.pdf"; // Default file name
@@ -299,6 +306,13 @@ namespace SatriaManagementSystem__Event_Project_
                     string receiptFilePath = saveFileDialog.FileName;
 
                     // Create a new Microsoft Word application
+                    string resourceFolder = Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources");
+                    if (!Directory.Exists(resourceFolder))
+                    {
+                        Directory.CreateDirectory(resourceFolder);
+                    }
+                    
+
                     Word.Application wordApp = new Word.Application();
                     try
                     {
@@ -308,7 +322,10 @@ namespace SatriaManagementSystem__Event_Project_
                         // Get the range of the document
                         Word.Range range = document.Content;
 
+
+
                         // Modify the content using the range
+                        range.Text += "------------------------UNIVERSITI TEKNIKAL MALAYSIA MELAKA------------------------";
                         range.Text += "Payment Receipt:\n";
                         range.Text += "Student: " + student.FullName + "\n";
                         range.Text += $"Matric Number: {student.MatricNumber}\n";
@@ -321,11 +338,7 @@ namespace SatriaManagementSystem__Event_Project_
                         // Save the document as a PDF
                         document.SaveAs2(receiptFilePath, Word.WdSaveFormat.wdFormatPDF);
 
-                        string resourceFolder = Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources");
-                        if (!Directory.Exists(resourceFolder))
-                        {
-                            Directory.CreateDirectory(resourceFolder);
-                        }
+                       
 
                         document.SaveAs2(Path.Combine(resourceFolder, Path.GetFileName(receiptFilePath)), Word.WdSaveFormat.wdFormatPDF);
                         // Close the document and the Word application
@@ -366,7 +379,7 @@ namespace SatriaManagementSystem__Event_Project_
         private void buttonViewReceipt_Click(object sender, EventArgs e)
         {
             // Obtain the path of the generated PDF file
-            var transactionId = ent.Student_Room.FirstOrDefault(x => x.StudentID == student.StudentID).Transaction.ID;
+            var transactionId = ent.Student_Room.ToList().LastOrDefault(x => x.StudentID == student.StudentID).Transaction.ID;
 
             string resourceFolder = Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources");
             string receiptFilePath = Path.Combine(resourceFolder, $"Receipt_{transactionId}.pdf");

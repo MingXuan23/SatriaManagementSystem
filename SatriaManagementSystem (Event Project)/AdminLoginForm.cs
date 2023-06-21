@@ -33,6 +33,9 @@ namespace SatriaManagementSystem__Event_Project_
         private void AdminLoginForm_Load(object sender, EventArgs e)
         {
             loadColor();
+            toolTip1.SetToolTip(buttonLogin, "Staff/SuperAdmin Log In");
+
+
         }
 
         private void checkBoxShowPw_CheckedChanged(object sender, EventArgs e)
@@ -101,6 +104,8 @@ namespace SatriaManagementSystem__Event_Project_
         private void buttonLogin_MouseHover(object sender, EventArgs e)
         {
             buttonLogin.BackColor = Color.LightSkyBlue;
+           
+            
         }
 
         private void buttonLogin_MouseLeave(object sender, EventArgs e)
@@ -121,6 +126,11 @@ namespace SatriaManagementSystem__Event_Project_
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             login();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

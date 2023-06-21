@@ -277,6 +277,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-wrong-301.png" />
+    <None Include="Resources\icons8-log-in-301.png" />
+    <None Include="Resources\icons8-tick-301.png" />
     <None Include="Resources\logoUtem.png" />
     <None Include="Resources\Search.png" />
   </ItemGroup>

@@ -63,7 +63,9 @@ namespace SatriaManagementSystem__Event_Project_
 
         public void initialiseTransaction(long? blockid, bool? type)
         {
-            dataGridView1.Rows.Clear();
+            listView1.Items.Clear();
+            //List< ListViewItem > list = new List<ListViewItem>();
+
             var blocks = ent.Blocks.ToList();
             if (blockid != null)
                 blocks = blocks.Where(b => b.ID == blockid).ToList();
@@ -71,38 +73,42 @@ namespace SatriaManagementSystem__Event_Project_
             {
                 if (type == null || type==true)
                 {
-                    List<long> staffs = ent.Staffs.Where(x => x.BlockID == b.ID).Select(x => x.StaffID).ToList();
-                    var staffTransaction = ent.Staff_Transaction.Where(x => staffs.Contains(x.StaffID)).ToList();
+                    List<long> staffs = ent.Staffs.Where(x => x.BlockID == b.ID ).Select(x => x.StaffID).ToList();
+                    var staffTransaction = ent.Staff_Transaction.Where(x => staffs.Contains(x.StaffID) && x.Transaction.TransactionDate<=dateTimePicker1.Value).ToList();
                     foreach (var t in staffTransaction)
                     {
-                        var rows = new object[6];
-                        rows[0] = t.TransactionID;
-                        rows[1] = t.Transaction.Amount;
-                        rows[2] = t.Transaction.TransactionDate;
-                        rows[3] = b.Name;
-                        rows[4] = t.Transaction.Withdrawal ? "Withdrawal" : "Deposit";
-                        rows[5] = t.Description;
-                        dataGridView1.Rows.Add(rows);
+                        var rows = new ListViewItem();
+                        rows.Text=t.TransactionID.ToString().PadLeft(3, '0'); 
+                        rows.SubItems.Add(t.Transaction.Amount.ToString());
+                        rows.SubItems.Add(t.Transaction.TransactionDate.ToString());
+                        rows.SubItems.Add(b.Name.ToString());
+                        rows.SubItems.Add(t.Transaction.Withdrawal ? "Withdrawal" : "Deposit");
+                        rows.SubItems.Add(t.Description);
+                        listView1.Items.Add(rows);
                     }
                 }
                 if (type == null || type == false){
-                    var studentRoom = ent.Student_Room.Where(x => x.Room.BlockID == b.ID && x.TransactionID != null).ToList();
+                    var studentRoom = ent.Student_Room.Where(x => x.Room.BlockID == b.ID && x.TransactionID != null &&x.Transaction.TransactionDate<=dateTimePicker1.Value).ToList();
                     foreach (var s in studentRoom)
                     {
-                        var rows = new object[6];
-                        rows[0] = s.TransactionID;
-                        rows[1] = s.Transaction.Amount;
-                        rows[2] = s.Transaction.TransactionDate;
-                        rows[3] = b.Name;
-                        rows[4] = s.Transaction.Withdrawal ? "Withdrawal" : "Deposit";
-                        rows[5] = $"{s.Student.User.FullName} paid room fee of {s.Room.RoomNo}";
-                        dataGridView1.Rows.Add(rows);
+                        var rows = new ListViewItem();
+                        rows.Text = s.TransactionID.ToString().PadLeft(3, '0');
+                        rows.SubItems.Add(s.Transaction.Amount.ToString());
+                        rows.SubItems.Add(s.Transaction.TransactionDate.ToString());
+                        rows.SubItems.Add(b.Name.ToString());
+                        rows.SubItems.Add(s.Transaction.Withdrawal ? "Withdrawal" : "Deposit");
+                        rows.SubItems.Add($"{s.Student.User.FullName} paid room fee of {s.Room.RoomNo}");
+                        listView1.Items.Add(rows);
+
                     }
                 }
-
+                
                 
 
             }
+
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
         }
         private void radioButtonCheckBalance_CheckedChanged(object sender, EventArgs e)
@@ -454,6 +460,21 @@ namespace SatriaManagementSystem__Event_Project_
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            filterTransaction();
         }
     }
 }

@@ -49,6 +49,16 @@ namespace SatriaManagementSystem__Event_Project_
                 MessageBox.Show("Please key in valid phone num", "Invalid Field");
                 return;
             }
+            else if (ent.Users.Any(x => x.Username == inputUserName))
+            {
+                MessageBox.Show("This username have been taken", "Invalid Field");
+                return;
+            }
+            else if (ent.Students.Any(x => x.MatricNumber == inputMatricNo))
+            {
+                MessageBox.Show("Duplicated matric number detected ", "Invalid Field");
+                return;
+            }
             else//if inputs are valid
             {
                 try
@@ -88,6 +98,21 @@ namespace SatriaManagementSystem__Event_Project_
         private void RegisterForm_Load(object sender, EventArgs e)
         {
             loadColor();
+        }
+
+        private void textBoxMatricNum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

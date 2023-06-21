@@ -44,10 +44,13 @@
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.radioButtonFemale = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.textBoxMatricNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBoxMatricNum = new System.Windows.Forms.MaskedTextBox();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -180,39 +183,28 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(36, 35);
+            this.label9.Location = new System.Drawing.Point(182, 1);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(340, 46);
+            this.label9.Size = new System.Drawing.Size(430, 46);
             this.label9.TabIndex = 17;
             this.label9.Text = "Here for Register";
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(457, 313);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(85, 36);
-            this.buttonSave.TabIndex = 18;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // buttonExit
             // 
+            this.buttonExit.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_wrong_30;
+            this.buttonExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExit.Location = new System.Drawing.Point(568, 313);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(85, 36);
+            this.buttonExit.Size = new System.Drawing.Size(99, 36);
             this.buttonExit.TabIndex = 19;
             this.buttonExit.Text = "Exit";
+            this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // textBoxMatricNum
-            // 
-            this.textBoxMatricNum.Location = new System.Drawing.Point(508, 112);
-            this.textBoxMatricNum.Name = "textBoxMatricNum";
-            this.textBoxMatricNum.Size = new System.Drawing.Size(145, 22);
-            this.textBoxMatricNum.TabIndex = 21;
             // 
             // label5
             // 
@@ -223,16 +215,64 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "Matric Number :";
             // 
+            // textBoxMatricNum
+            // 
+            this.textBoxMatricNum.Location = new System.Drawing.Point(508, 118);
+            this.textBoxMatricNum.Mask = "a999999999";
+            this.textBoxMatricNum.Name = "textBoxMatricNum";
+            this.textBoxMatricNum.Size = new System.Drawing.Size(145, 22);
+            this.textBoxMatricNum.TabIndex = 22;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_tick_30;
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(436, 313);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(106, 36);
+            this.buttonSave.TabIndex = 18;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackgroundImage = global::SatriaManagementSystem__Event_Project_.Properties.Resources.logoUtem;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(171, 75);
+            this.panel1.TabIndex = 23;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.98551F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0145F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(51, 12);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(616, 83);
+            this.tableLayoutPanel1.TabIndex = 24;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 412);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBoxMatricNum);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.radioButtonFemale);
             this.Controls.Add(this.radioButtonMale);
             this.Controls.Add(this.textBoxEmail);
@@ -252,6 +292,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.Load += new System.EventHandler(this.RegisterForm_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +319,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonExit;
-        private System.Windows.Forms.TextBox textBoxMatricNum;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MaskedTextBox textBoxMatricNum;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

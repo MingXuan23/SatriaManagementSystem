@@ -49,6 +49,8 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelMyInformation = new System.Windows.Forms.Label();
             this.tabPageSearchStudent = new System.Windows.Forms.TabPage();
+            this.labelFilter = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,6 +124,7 @@
             this.tabPageMyInformation.TabIndex = 2;
             this.tabPageMyInformation.Text = "My Information";
             this.tabPageMyInformation.UseVisualStyleBackColor = true;
+            this.tabPageMyInformation.Click += new System.EventHandler(this.tabPageMyInformation_Click);
             // 
             // linkLabelSuperAdmin
             // 
@@ -158,21 +161,27 @@
             // 
             // buttonDiscard
             // 
+            this.buttonDiscard.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_wrong_30;
+            this.buttonDiscard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDiscard.Location = new System.Drawing.Point(396, 277);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(90, 37);
+            this.buttonDiscard.Size = new System.Drawing.Size(110, 37);
             this.buttonDiscard.TabIndex = 60;
             this.buttonDiscard.Text = "Discard";
+            this.buttonDiscard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDiscard.UseVisualStyleBackColor = true;
             this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(266, 277);
+            this.buttonEdit.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_tick_30;
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.Location = new System.Drawing.Point(258, 277);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(90, 37);
+            this.buttonEdit.Size = new System.Drawing.Size(87, 37);
             this.buttonEdit.TabIndex = 58;
             this.buttonEdit.Text = "Edit";
+            this.buttonEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
@@ -290,6 +299,8 @@
             // 
             // tabPageSearchStudent
             // 
+            this.tabPageSearchStudent.Controls.Add(this.labelFilter);
+            this.tabPageSearchStudent.Controls.Add(this.progressBar1);
             this.tabPageSearchStudent.Controls.Add(this.pictureBox1);
             this.tabPageSearchStudent.Controls.Add(this.dataGridView1);
             this.tabPageSearchStudent.Controls.Add(this.textBoxSearchStudent);
@@ -300,6 +311,22 @@
             this.tabPageSearchStudent.TabIndex = 0;
             this.tabPageSearchStudent.Text = "Search Student";
             this.tabPageSearchStudent.UseVisualStyleBackColor = true;
+            // 
+            // labelFilter
+            // 
+            this.labelFilter.AutoSize = true;
+            this.labelFilter.Location = new System.Drawing.Point(527, 39);
+            this.labelFilter.Name = "labelFilter";
+            this.labelFilter.Size = new System.Drawing.Size(94, 16);
+            this.labelFilter.TabIndex = 6;
+            this.labelFilter.Text = "FIlter Students:";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(681, 32);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(157, 23);
+            this.progressBar1.TabIndex = 5;
             // 
             // pictureBox1
             // 
@@ -597,5 +624,7 @@
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnToolStripMenuItem;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label labelFilter;
     }
 }

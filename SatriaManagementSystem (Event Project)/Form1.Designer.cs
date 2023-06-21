@@ -63,11 +63,14 @@
             // 
             // buttonLogin
             // 
+            this.buttonLogin.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_log_in_30;
+            this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLogin.Location = new System.Drawing.Point(194, 332);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(80, 41);
+            this.buttonLogin.Size = new System.Drawing.Size(108, 41);
             this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "Login";
+            this.buttonLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
@@ -75,11 +78,14 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_wrong_30;
+            this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancel.Location = new System.Drawing.Point(364, 332);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(82, 41);
+            this.buttonCancel.Size = new System.Drawing.Size(106, 41);
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             this.buttonCancel.MouseLeave += new System.EventHandler(this.buttonCancel_MouseLeave);

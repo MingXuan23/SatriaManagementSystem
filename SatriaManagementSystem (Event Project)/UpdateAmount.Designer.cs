@@ -79,21 +79,27 @@
             // 
             // buttonConfirm
             // 
-            this.buttonConfirm.Location = new System.Drawing.Point(121, 165);
+            this.buttonConfirm.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_tick_30;
+            this.buttonConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConfirm.Location = new System.Drawing.Point(89, 151);
             this.buttonConfirm.Name = "buttonConfirm";
-            this.buttonConfirm.Size = new System.Drawing.Size(75, 23);
+            this.buttonConfirm.Size = new System.Drawing.Size(107, 37);
             this.buttonConfirm.TabIndex = 2;
             this.buttonConfirm.Text = "Confirm";
+            this.buttonConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonConfirm.UseVisualStyleBackColor = true;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(221, 165);
+            this.buttonCancel.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_wrong_30;
+            this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancel.Location = new System.Drawing.Point(202, 151);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(113, 37);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 

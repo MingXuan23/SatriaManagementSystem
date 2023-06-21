@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -36,6 +37,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.checkBoxShowPw = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -85,11 +87,14 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(225, 205);
+            this.buttonCancel.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_wrong_30;
+            this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancel.Location = new System.Drawing.Point(216, 205);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(82, 41);
+            this.buttonCancel.Size = new System.Drawing.Size(113, 41);
             this.buttonCancel.TabIndex = 16;
             this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             this.buttonCancel.MouseLeave += new System.EventHandler(this.buttonCancel_MouseLeave);
@@ -97,11 +102,14 @@
             // 
             // buttonLogin
             // 
+            this.buttonLogin.Image = global::SatriaManagementSystem__Event_Project_.Properties.Resources.icons8_log_in_30;
+            this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLogin.Location = new System.Drawing.Point(53, 207);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(76, 37);
+            this.buttonLogin.Size = new System.Drawing.Size(115, 39);
             this.buttonLogin.TabIndex = 15;
             this.buttonLogin.Text = "Login";
+            this.buttonLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
@@ -151,5 +159,6 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.CheckBox checkBoxShowPw;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

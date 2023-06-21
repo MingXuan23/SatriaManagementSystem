@@ -78,6 +78,7 @@ namespace SatriaManagementSystem__Event_Project_
             textBoxSearchStudent.ForeColor = Color.Gray;
             fetchBlock();
             loadColor();
+            
         }
 
         private void linkLabelSuperAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -148,7 +149,14 @@ namespace SatriaManagementSystem__Event_Project_
                 }
 
                 dataGridView1.Rows.Add(rows);
+
+
             }
+
+            progressBar1.Maximum = ent.Students.Count();
+            progressBar1.Value=studentslist.Count;
+            labelFilter.Text = $"FIlter Students:{progressBar1.Value}/{progressBar1.Maximum}";
+
         }
         private void textBoxSearchStudent_TextChanged(object sender, EventArgs e)
         {
@@ -192,7 +200,7 @@ namespace SatriaManagementSystem__Event_Project_
         {
             foreach(Control control in tabPageMyInformation.Controls)
             {
-                if(control is TextBox &&control.Text =="")
+                if((control is TextBox||control is MaskedTextBox) &&control.Text =="")
                 {
                     MessageBox.Show("Please filled all fields");
                     return;
@@ -202,6 +210,11 @@ namespace SatriaManagementSystem__Event_Project_
             if (!decimal.TryParse(textBoxPhoneNo.Text, out result))
             {
                 MessageBox.Show("Please filled valid phoen number");
+                return;
+            }
+           if (ent.Users.Any(x => x.Username == textBoxUsername.Text && x.ID!=staff.ID))
+            {
+                MessageBox.Show("This username have been taken", "Invalid Field");
                 return;
             }
             staff.Gender = radioButtonMale.Checked;
@@ -349,6 +362,11 @@ namespace SatriaManagementSystem__Event_Project_
         private void Staff_Form_VisibleChanged(object sender, EventArgs e)
         {
             loadColor();
+        }
+
+        private void tabPageMyInformation_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
